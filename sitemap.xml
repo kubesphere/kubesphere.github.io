@@ -4,63 +4,72 @@
   
   <url>
     <loc>/docs/overview/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/concepts/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/build/</loc>
-  </url>
-  
-  <url>
-    <loc>/blog/news/</loc>
-    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/</loc>
-    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <loc>/blog/news/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/2019/06/24/an-open-source-load-balancer-for-bare-metal-kubernetes/</loc>
-    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/2019/06/24/the-interview-to-porter-from-the-new-stack/</loc>
-    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/index.json</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/community/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/search/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
   <url>
     <loc>/about/</loc>
+    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
   </url>
   
 </urlset>

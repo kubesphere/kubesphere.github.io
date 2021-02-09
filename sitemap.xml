@@ -3,28 +3,93 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/docs/concepts/bgp-mode/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/configuration/configure-ip-address-pools-using-eip/</loc>
+    <lastmod>2021-02-08T14:07:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/installation/install-porter-on-kubernetes/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/installation/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/concepts/layer-2-mode/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/docs/overview/</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/usage/use-porter-in-bgp-mode/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/concepts/</loc>
-    <lastmod>2020-05-21T00:10:17+08:00</lastmod>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/configuration/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/configuration/configure-porter-in-bgp-mode/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/installation/install-porter-on-kubesphere/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/usage/use-porter-in-layer-2-mode/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/</loc>
+    <lastmod>2021-02-07T20:58:41+08:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
   </url>
   
   <url>
-    <loc>/docs/build/</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
+    <loc>/docs/getting-started/usage/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/building/</loc>
+    <lastmod>2021-02-07T20:58:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/configuration/configure-multiple-porter-replicas/</loc>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
+    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
   </url>
   
   <url>
@@ -59,7 +124,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
+    <lastmod>2021-02-08T13:08:18+08:00</lastmod>
   </url>
   
   <url>

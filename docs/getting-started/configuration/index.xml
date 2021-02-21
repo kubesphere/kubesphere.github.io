@@ -85,14 +85,14 @@
 &lt;p&gt;&lt;code&gt;disable&lt;/code&gt;: Specifies whether the Eip object is disabled. The value can be:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;false&lt;/code&gt;: Porter can assign IP addresses in the Eip object to new LoadBalancer services.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;true&lt;/code&gt;: Porter stops assigning IP addresses in the Eip object to new LoadBalancer services. Existing services will not be affected.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;true&lt;/code&gt;: Porter stops assigning IP addresses in the Eip object to new LoadBalancer services. Existing services are not affected.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;status&lt;/code&gt;: Fields under &lt;code&gt;status&lt;/code&gt; specify the status of the Eip object and are automatically configured. When creating an Eip object, you do not need to configure these fields.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;occupied&lt;/code&gt;: Specifies whether IP addresses in the Eip object has been used up.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;occupied&lt;/code&gt;: Specifies whether IP addresses in the Eip object have been used up.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;usage&lt;/code&gt;: Specifies how many IP addresses in the Eip object have been assigned to services.&lt;/p&gt;

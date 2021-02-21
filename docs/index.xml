@@ -38,6 +38,83 @@
     </item>
     
     <item>
+      <title>Docs: Build the Porter Project</title>
+      <link>/docs/building-and-contributing/build-the-porter-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/building-and-contributing/build-the-porter-project/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This document describes how to build the Porter project for testing.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You need to prepare a Linux environment.&lt;/li&gt;
+&lt;li&gt;You need to install &lt;a href=&#34;https://github.com/kubesphere/porter/blob/master/doc/how-to-build.md&#34;&gt;Go 1.12 or later&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;You need to install &lt;a href=&#34;https://www.docker.com/get-started&#34;&gt;Docker&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;You need to install &lt;a href=&#34;https://www.docker.com/blog/getting-started-with-docker-for-arm-on-linux/&#34;&gt;Docker Buildx&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;procedure&#34;&gt;Procedure&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Visit &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;https://github.com/kubesphere/porter&lt;/a&gt; and click &lt;strong&gt;Fork&lt;/strong&gt; to fork the Porter repository to your own GitHub account.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Log in to your environment, and run the following commands to clone the Porter repository and go to the &lt;code&gt;porter&lt;/code&gt; directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone &amp;lt;Address of your own Porter repository&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; porter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to install Kustomize and Kubebuilder:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;./hack/install_tools.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to install controller-gen:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;go get sigs.k8s.io/controller-tools/cmd/controller-gen@v0.4.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to configure the environment variable for controller-gen:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/root/go/bin/:&lt;span style=&#34;color:#000&#34;&gt;$PATH&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;You need to change &lt;code&gt;/root/go/bin/&lt;/code&gt; to the actual path of controller-gen.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to generate CRDs and webhooks:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make generate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Customize the values of &lt;code&gt;IMG_MANAGER&lt;/code&gt; and &lt;code&gt;IMG_AGENT&lt;/code&gt; in &lt;code&gt;Makefile&lt;/code&gt; and run the following command to generate a YAML release file in the &lt;code&gt;deploy&lt;/code&gt; directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make release
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;IMG_MANAGER&lt;/code&gt; specifies the repository and tag of the porter-manager image.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;IMG_AGENT&lt;/code&gt; specifies the repository and tag of the porter-agent image.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Currently, Porter uses only the porter-manager image. The porter-agent image will be used in future versions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to deploy Porter as a plugin:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f deploy/release.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Configure IP Address Pools Using Eip</title>
       <link>/docs/getting-started/configuration/configure-ip-address-pools-using-eip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -109,14 +186,14 @@
 &lt;p&gt;&lt;code&gt;disable&lt;/code&gt;: Specifies whether the Eip object is disabled. The value can be:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;false&lt;/code&gt;: Porter can assign IP addresses in the Eip object to new LoadBalancer services.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;true&lt;/code&gt;: Porter stops assigning IP addresses in the Eip object to new LoadBalancer services. Existing services will not be affected.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;true&lt;/code&gt;: Porter stops assigning IP addresses in the Eip object to new LoadBalancer services. Existing services are not affected.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;status&lt;/code&gt;: Fields under &lt;code&gt;status&lt;/code&gt; specify the status of the Eip object and are automatically configured. When creating an Eip object, you do not need to configure these fields.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;occupied&lt;/code&gt;: Specifies whether IP addresses in the Eip object has been used up.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;occupied&lt;/code&gt;: Specifies whether IP addresses in the Eip object have been used up.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;usage&lt;/code&gt;: Specifies how many IP addresses in the Eip object have been assigned to services.&lt;/p&gt;
@@ -145,7 +222,7 @@
     </item>
     
     <item>
-      <title>Docs: Install Porter on Kubernetes (kubectl and Helm)</title>
+      <title>Docs: Install Porter on Kubernetes</title>
       <link>/docs/getting-started/installation/install-porter-on-kubernetes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -153,7 +230,15 @@
       <description>
         
         
-        &lt;p&gt;This document describes how to use kubectl and &lt;a href=&#34;https://helm.sh/&#34;&gt;Helm&lt;/a&gt; to install and delete Porter in a Kubernetes cluster. For details about how to install and delete Porter on the &lt;a href=&#34;https://kubesphere.io/docs/installing-on-linux/introduction/multioverview/#step-3-create-a-cluster&#34;&gt;KubeSphere&lt;/a&gt; web console, see &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubesphere/&#34;&gt;Install Porter on KubeSphere (Web Console)&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;This document describes how to use kubectl and &lt;a href=&#34;https://helm.sh/&#34;&gt;Helm&lt;/a&gt; to install and delete Porter in a Kubernetes cluster.&lt;/p&gt;
+&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;&lt;ul&gt;
+&lt;li&gt;In a Kubernetes cluster, you only need to install Porter once. After the installation is complete, a porter-manager deployment that contains a porter-manager pod is installed in the cluster. The porter-manager pod implements the functionality of Porter for the entire Kubernetes cluster.&lt;/li&gt;
+&lt;li&gt;After the installation is complete, you can scale the porter-manager deployment and assign multiple Porter replicas (porter-manager pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas&#34;&gt;Configure Multiple Porter Replicas&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -192,7 +277,7 @@
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to check the result. If the porter-system name space does not exist, Porter has been deleted successfully.&lt;/p&gt;
+&lt;p&gt;Run the following command to check the result. If the porter-system namespace does not exist, Porter has been deleted successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get ns
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-deletion-kubectl.jpg&#34; alt=&#34;verify-porter-deletion-kubectl&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -673,7 +758,28 @@ protocol bgp neighbor1 {
     </item>
     
     <item>
-      <title>Docs: Install Porter on KubeSphere (Web Console)</title>
+      <title>Docs: Contribute to the Porter Project</title>
+      <link>/docs/building-and-contributing/contribute-to-the-porter-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/building-and-contributing/contribute-to-the-porter-project/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Porter is an open-source project and a sub-project of &lt;a href=&#34;https://github.com/kubesphere&#34;&gt;KubeSphere&lt;/a&gt;. Contributions in all forms are always welcome!&lt;/p&gt;
+&lt;h2 id=&#34;new-feature-proposals&#34;&gt;New Feature Proposals&lt;/h2&gt;
+&lt;p&gt;If you have any ideas or suggestions, please send &lt;a href=&#34;https://github.com/kubesphere/community/blob/master/contribution/design-proposal-template.md&#34;&gt;design proposals&lt;/a&gt; to the &lt;a href=&#34;https://github.com/kubesphere/kubesphere/issues&#34;&gt;GitHub Porter Repository Issues&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;code-contributions&#34;&gt;Code Contributions&lt;/h2&gt;
+&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/community/tree/master/developer-guide&#34;&gt;developer guides&lt;/a&gt; at the KubeSphere Community, &lt;a href=&#34;/docs/building-and-contributing/build-the-porter-project&#34;&gt;build the Porter project&lt;/a&gt; locally for testing, and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;GitHub Porter Repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;document-contributions&#34;&gt;Document Contributions&lt;/h2&gt;
+&lt;p&gt;Both original documents and localization works are welcome!&lt;/p&gt;
+&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/KubeSphere%20Documentation%20Style%20Guide.md&#34;&gt;KubeSphere Documentation Style Guide&lt;/a&gt; and &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/localization_style_guides/KubeSphere%20Localization%20Style%20Guide%20(for%20Simplified%20Chinese).md&#34;&gt;KubeSphere Localization Style Guide&lt;/a&gt; and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter-website&#34;&gt;GitHub Porter Website Repository&lt;/a&gt;. All documents of Porter are located in the &lt;a href=&#34;https://github.com/kubesphere/porter-website/tree/master/content&#34;&gt;content&lt;/a&gt; directory.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Install Porter on KubeSphere</title>
       <link>/docs/getting-started/installation/install-porter-on-kubesphere/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -681,7 +787,15 @@ protocol bgp neighbor1 {
       <description>
         
         
-        &lt;p&gt;This document describes how to install and delete Porter on the &lt;a href=&#34;https://kubesphere.io/&#34;&gt;KubeSphere&lt;/a&gt; web console.  For details about how to install and delete Porter in a Kubernetes cluster without KubeSphere, see &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubernetes/&#34;&gt;Install Porter on Kubernetes (kubectl and Helm)&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;This document describes how to install and delete Porter on the &lt;a href=&#34;https://kubesphere.io/&#34;&gt;KubeSphere&lt;/a&gt; web console.&lt;/p&gt;
+&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;&lt;ul&gt;
+&lt;li&gt;In a Kubernetes cluster, you only need to install Porter once. After the installation is complete, a porter-manager deployment that contains a porter-manager pod is installed in the cluster. The porter-manager pod implements the functionality of Porter for the entire Kubernetes cluster.&lt;/li&gt;
+&lt;li&gt;After the installation is complete, you can scale the porter-manager deployment and assign multiple Porter replicas (porter-manager pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas/&#34;&gt;Configure Multiple Porter Replicas&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;You need to prepare a Kubernetes cluster with KubeSphere, and ensure that the Kubernetes version is 1.15 or later. Porter requires CustomResourceDefinition (CRD) v1, which is only supported by Kubernetes 1.15 or later. You can use the following methods to install KubeSphere:&lt;/p&gt;
 &lt;ul&gt;
@@ -726,7 +840,7 @@ protocol bgp neighbor1 {
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;delete-porter-on-the-kubesphere-web-console&#34;&gt;Delete Porter on the KubeSphere Web Console&lt;/h2&gt;
-&lt;p&gt;To delete Porter on the KubeSphere web console, go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, click &lt;img src=&#34;./img/install-porter-on-kubesphere/porter-operation.jpg&#34; alt=&#34;porter-operation&#34;&gt; on the right of the Porter application, and choose &lt;strong&gt;Delete&lt;/strong&gt; from the drop-down list.&lt;/p&gt;
+&lt;p&gt;To delete Porter on the KubeSphere web console, go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, click &lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-operation.jpg&#34; alt=&#34;porter-operation&#34;&gt; on the right of the Porter application, and choose &lt;strong&gt;Delete&lt;/strong&gt; from the drop-down list.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/delete-porter.jpg&#34; alt=&#34;delete-porter&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   

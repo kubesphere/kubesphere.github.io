@@ -14,7 +14,7 @@
     
     
     <item>
-      <title>Docs: Install Porter on Kubernetes (kubectl and Helm)</title>
+      <title>Docs: Install Porter on Kubernetes</title>
       <link>/docs/getting-started/installation/install-porter-on-kubernetes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -22,7 +22,15 @@
       <description>
         
         
-        &lt;p&gt;This document describes how to use kubectl and &lt;a href=&#34;https://helm.sh/&#34;&gt;Helm&lt;/a&gt; to install and delete Porter in a Kubernetes cluster. For details about how to install and delete Porter on the &lt;a href=&#34;https://kubesphere.io/docs/installing-on-linux/introduction/multioverview/#step-3-create-a-cluster&#34;&gt;KubeSphere&lt;/a&gt; web console, see &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubesphere/&#34;&gt;Install Porter on KubeSphere (Web Console)&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;This document describes how to use kubectl and &lt;a href=&#34;https://helm.sh/&#34;&gt;Helm&lt;/a&gt; to install and delete Porter in a Kubernetes cluster.&lt;/p&gt;
+&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;&lt;ul&gt;
+&lt;li&gt;In a Kubernetes cluster, you only need to install Porter once. After the installation is complete, a porter-manager deployment that contains a porter-manager pod is installed in the cluster. The porter-manager pod implements the functionality of Porter for the entire Kubernetes cluster.&lt;/li&gt;
+&lt;li&gt;After the installation is complete, you can scale the porter-manager deployment and assign multiple Porter replicas (porter-manager pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas&#34;&gt;Configure Multiple Porter Replicas&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -61,7 +69,7 @@
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to check the result. If the porter-system name space does not exist, Porter has been deleted successfully.&lt;/p&gt;
+&lt;p&gt;Run the following command to check the result. If the porter-system namespace does not exist, Porter has been deleted successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get ns
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-deletion-kubectl.jpg&#34; alt=&#34;verify-porter-deletion-kubectl&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -102,7 +110,7 @@ helm install porter test/porter
     </item>
     
     <item>
-      <title>Docs: Install Porter on KubeSphere (Web Console)</title>
+      <title>Docs: Install Porter on KubeSphere</title>
       <link>/docs/getting-started/installation/install-porter-on-kubesphere/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -110,7 +118,15 @@ helm install porter test/porter
       <description>
         
         
-        &lt;p&gt;This document describes how to install and delete Porter on the &lt;a href=&#34;https://kubesphere.io/&#34;&gt;KubeSphere&lt;/a&gt; web console.  For details about how to install and delete Porter in a Kubernetes cluster without KubeSphere, see &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubernetes/&#34;&gt;Install Porter on Kubernetes (kubectl and Helm)&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;This document describes how to install and delete Porter on the &lt;a href=&#34;https://kubesphere.io/&#34;&gt;KubeSphere&lt;/a&gt; web console.&lt;/p&gt;
+&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;&lt;ul&gt;
+&lt;li&gt;In a Kubernetes cluster, you only need to install Porter once. After the installation is complete, a porter-manager deployment that contains a porter-manager pod is installed in the cluster. The porter-manager pod implements the functionality of Porter for the entire Kubernetes cluster.&lt;/li&gt;
+&lt;li&gt;After the installation is complete, you can scale the porter-manager deployment and assign multiple Porter replicas (porter-manager pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas/&#34;&gt;Configure Multiple Porter Replicas&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;You need to prepare a Kubernetes cluster with KubeSphere, and ensure that the Kubernetes version is 1.15 or later. Porter requires CustomResourceDefinition (CRD) v1, which is only supported by Kubernetes 1.15 or later. You can use the following methods to install KubeSphere:&lt;/p&gt;
 &lt;ul&gt;
@@ -155,7 +171,7 @@ helm install porter test/porter
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;delete-porter-on-the-kubesphere-web-console&#34;&gt;Delete Porter on the KubeSphere Web Console&lt;/h2&gt;
-&lt;p&gt;To delete Porter on the KubeSphere web console, go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, click &lt;img src=&#34;./img/install-porter-on-kubesphere/porter-operation.jpg&#34; alt=&#34;porter-operation&#34;&gt; on the right of the Porter application, and choose &lt;strong&gt;Delete&lt;/strong&gt; from the drop-down list.&lt;/p&gt;
+&lt;p&gt;To delete Porter on the KubeSphere web console, go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, click &lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-operation.jpg&#34; alt=&#34;porter-operation&#34;&gt; on the right of the Porter application, and choose &lt;strong&gt;Delete&lt;/strong&gt; from the drop-down list.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/delete-porter.jpg&#34; alt=&#34;delete-porter&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   

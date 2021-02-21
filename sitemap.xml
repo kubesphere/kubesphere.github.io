@@ -8,13 +8,18 @@
   </url>
   
   <url>
+    <loc>/docs/building-and-contributing/build-the-porter-project/</loc>
+    <lastmod>2021-02-09T16:33:17+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/docs/getting-started/configuration/configure-ip-address-pools-using-eip/</loc>
-    <lastmod>2021-02-08T14:07:42+08:00</lastmod>
+    <lastmod>2021-02-09T12:06:06+08:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/installation/install-porter-on-kubernetes/</loc>
-    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+    <lastmod>2021-02-19T11:12:58+08:00</lastmod>
   </url>
   
   <url>
@@ -29,7 +34,7 @@
   
   <url>
     <loc>/docs/overview/</loc>
-    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+    <lastmod>2021-02-09T16:33:17+08:00</lastmod>
   </url>
   
   <url>
@@ -53,8 +58,13 @@
   </url>
   
   <url>
+    <loc>/docs/building-and-contributing/contribute-to-the-porter-project/</loc>
+    <lastmod>2021-02-09T16:33:17+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/docs/getting-started/installation/install-porter-on-kubesphere/</loc>
-    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+    <lastmod>2021-02-19T11:09:40+08:00</lastmod>
   </url>
   
   <url>
@@ -78,8 +88,8 @@
   </url>
   
   <url>
-    <loc>/docs/building/</loc>
-    <lastmod>2021-02-07T20:58:41+08:00</lastmod>
+    <loc>/docs/building-and-contributing/</loc>
+    <lastmod>2021-02-09T16:33:17+08:00</lastmod>
   </url>
   
   <url>
@@ -89,7 +99,7 @@
   
   <url>
     <loc>/docs/</loc>
-    <lastmod>2021-02-07T20:22:22+08:00</lastmod>
+    <lastmod>2021-02-09T16:33:17+08:00</lastmod>
   </url>
   
   <url>
@@ -134,7 +144,7 @@
   
   <url>
     <loc>/about/</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
+    <lastmod>2021-02-09T11:18:53+08:00</lastmod>
   </url>
   
 </urlset>

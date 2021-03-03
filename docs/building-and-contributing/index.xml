@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Porter – Building and Contributing</title>
+    <title>PorterLB – Building and Contributing</title>
     <link>/docs/building-and-contributing/</link>
-    <description>Recent content in Building and Contributing on Porter</description>
+    <description>Recent content in Building and Contributing on PorterLB</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="/docs/building-and-contributing/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +14,7 @@
     
     
     <item>
-      <title>Docs: Build the Porter Project</title>
+      <title>Docs: Build the PorterLB Project</title>
       <link>/docs/building-and-contributing/build-the-porter-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -22,7 +22,7 @@
       <description>
         
         
-        &lt;p&gt;This document describes how to build the Porter project for testing.&lt;/p&gt;
+        &lt;p&gt;This document describes how to build the PorterLB project for testing.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;You need to prepare a Linux environment.&lt;/li&gt;
@@ -33,11 +33,11 @@
 &lt;h2 id=&#34;procedure&#34;&gt;Procedure&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Visit &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;https://github.com/kubesphere/porter&lt;/a&gt; and click &lt;strong&gt;Fork&lt;/strong&gt; to fork the Porter repository to your own GitHub account.&lt;/p&gt;
+&lt;p&gt;Visit &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;https://github.com/kubesphere/porter&lt;/a&gt; and click &lt;strong&gt;Fork&lt;/strong&gt; to fork the PorterLB repository to your own GitHub account.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Log in to your environment, and run the following commands to clone the Porter repository and go to the &lt;code&gt;porter&lt;/code&gt; directory:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone &amp;lt;Address of your own Porter repository&amp;gt;
+&lt;p&gt;Log in to your environment, and run the following commands to clone the PorterLB repository and go to the &lt;code&gt;porter&lt;/code&gt; directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone &amp;lt;Address of your own PorterLB repository&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; porter
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
@@ -75,14 +75,14 @@
 &lt;p&gt;&lt;code&gt;IMG_AGENT&lt;/code&gt; specifies the repository and tag of the porter-agent image.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Currently, Porter uses only the porter-manager image. The porter-agent image will be used in future versions.&lt;/p&gt;
+&lt;p&gt;Currently, PorterLB uses only the porter-manager image. The porter-agent image will be used in future versions.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to deploy Porter as a plugin:&lt;/p&gt;
+&lt;p&gt;Run the following command to deploy PorterLB as a plugin:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f deploy/release.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -91,7 +91,7 @@
     </item>
     
     <item>
-      <title>Docs: Contribute to the Porter Project</title>
+      <title>Docs: Contribute to the PorterLB Project</title>
       <link>/docs/building-and-contributing/contribute-to-the-porter-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -99,14 +99,14 @@
       <description>
         
         
-        &lt;p&gt;Porter is an open-source project and a sub-project of &lt;a href=&#34;https://github.com/kubesphere&#34;&gt;KubeSphere&lt;/a&gt;. Contributions in all forms are always welcome!&lt;/p&gt;
+        &lt;p&gt;PorterLB is an open-source project and a sub-project of &lt;a href=&#34;https://github.com/kubesphere&#34;&gt;KubeSphere&lt;/a&gt;. Contributions in all forms are always welcome!&lt;/p&gt;
 &lt;h2 id=&#34;new-feature-proposals&#34;&gt;New Feature Proposals&lt;/h2&gt;
-&lt;p&gt;If you have any ideas or suggestions, please send &lt;a href=&#34;https://github.com/kubesphere/community/blob/master/contribution/design-proposal-template.md&#34;&gt;design proposals&lt;/a&gt; to the &lt;a href=&#34;https://github.com/kubesphere/kubesphere/issues&#34;&gt;GitHub Porter Repository Issues&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have any ideas or suggestions, please send &lt;a href=&#34;https://github.com/kubesphere/community/blob/master/contribution/design-proposal-template.md&#34;&gt;design proposals&lt;/a&gt; to the &lt;a href=&#34;https://github.com/kubesphere/kubesphere/issues&#34;&gt;GitHub PorterLB Repository Issues&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;code-contributions&#34;&gt;Code Contributions&lt;/h2&gt;
-&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/community/tree/master/developer-guide&#34;&gt;developer guides&lt;/a&gt; at the KubeSphere Community, &lt;a href=&#34;/docs/building-and-contributing/build-the-porter-project&#34;&gt;build the Porter project&lt;/a&gt; locally for testing, and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;GitHub Porter Repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/community/tree/master/developer-guide&#34;&gt;developer guides&lt;/a&gt; at the KubeSphere Community, &lt;a href=&#34;/docs/building-and-contributing/build-the-porter-project&#34;&gt;build the PorterLB project&lt;/a&gt; locally for testing, and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;GitHub PorterLB Repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;document-contributions&#34;&gt;Document Contributions&lt;/h2&gt;
 &lt;p&gt;Both original documents and localization works are welcome!&lt;/p&gt;
-&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/KubeSphere%20Documentation%20Style%20Guide.md&#34;&gt;KubeSphere Documentation Style Guide&lt;/a&gt; and &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/localization_style_guides/KubeSphere%20Localization%20Style%20Guide%20(for%20Simplified%20Chinese).md&#34;&gt;KubeSphere Localization Style Guide&lt;/a&gt; and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter-website&#34;&gt;GitHub Porter Website Repository&lt;/a&gt;. All documents of Porter are located in the &lt;a href=&#34;https://github.com/kubesphere/porter-website/tree/master/content&#34;&gt;content&lt;/a&gt; directory.&lt;/p&gt;
+&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/KubeSphere%20Documentation%20Style%20Guide.md&#34;&gt;KubeSphere Documentation Style Guide&lt;/a&gt; and &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/localization_style_guides/KubeSphere%20Localization%20Style%20Guide%20(for%20Simplified%20Chinese).md&#34;&gt;KubeSphere Localization Style Guide&lt;/a&gt; and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter-website&#34;&gt;GitHub PorterLB Website Repository&lt;/a&gt;. All documents of PorterLB are located in the &lt;a href=&#34;https://github.com/kubesphere/porter-website/tree/master/content&#34;&gt;content&lt;/a&gt; directory.&lt;/p&gt;
 
       </description>
     </item>

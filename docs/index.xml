@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Porter – Documentation</title>
+    <title>PorterLB – Documentation</title>
     <link>/docs/</link>
-    <description>Recent content in Documentation on Porter</description>
+    <description>Recent content in Documentation on PorterLB</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
@@ -22,23 +22,23 @@
       <description>
         
         
-        &lt;p&gt;This document describes the network topology of Porter in BGP mode and how Porter functions in BGP mode.&lt;/p&gt;
+        &lt;p&gt;This document describes the network topology of PorterLB in BGP mode and how PorterLB functions in BGP mode.&lt;/p&gt;
 &lt;h2 id=&#34;network-topology&#34;&gt;Network Topology&lt;/h2&gt;
-&lt;p&gt;The following figure shows the topology of the network between a Kubernetes cluster where Porter is installed and a peer BGP router.&lt;/p&gt;
+&lt;p&gt;The following figure shows the topology of the network between a Kubernetes cluster where PorterLB is installed and a peer BGP router.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/concepts/bgp-mode/porter-bgp-topology.jpg&#34; alt=&#34;porter-bgp-topology&#34;&gt;&lt;/p&gt;
 &lt;p&gt;IP addresses and Autonomous System Numbers (ASNs) in the preceding figure are examples only. The topology is described as follows:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;A service backed by two pods is deployed in the Kubernetes cluster, and is assigned an IP address 172.22.0.2 for external access.&lt;/li&gt;
-&lt;li&gt;Porter installed in the Kubernetes cluster establishes a BGP connection with the BGP router, and publishes routes destined for the service to the BGP router.&lt;/li&gt;
-&lt;li&gt;When an external client machine attempts to access the service, the BGP router load balances the traffic among the master, worker 1, and worker 2 nodes based on the routes obtained from Porter. After the service traffic reaches a node, kube-proxy can further forward the traffic to other nodes for load balancing (both pod 1 and pod 2 can be reached over kube-proxy).&lt;/li&gt;
+&lt;li&gt;A Service backed by two Pods is deployed in the Kubernetes cluster, and is assigned an IP address 172.22.0.2 for external access.&lt;/li&gt;
+&lt;li&gt;PorterLB installed in the Kubernetes cluster establishes a BGP connection with the BGP router, and publishes routes destined for the Service to the BGP router.&lt;/li&gt;
+&lt;li&gt;When an external client machine attempts to access the Service, the BGP router load balances the traffic among the master, worker 1, and worker 2 nodes based on the routes obtained from PorterLB. After the Service traffic reaches a node, kube-proxy can further forward the traffic to other nodes for load balancing (both Pod 1 and Pod 2 can be reached over kube-proxy).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Porter uses &lt;a href=&#34;https://github.com/osrg/gobgp&#34;&gt;GoBGP&lt;/a&gt; (integrated in Porter) to establish a BGP connection for route publishing. Two &lt;a href=&#34;https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/&#34;&gt;CustomResourceDefinitions (CRDs)&lt;/a&gt;, BgpConf and BgpPeer, are provided for users to configure the local and peer BGP properties on Porter. BgpConf and BgpPeer are designed according to the &lt;a href=&#34;https://github.com/osrg/gobgp/blob/master/api/gobgp.pb.go&#34;&gt;GoBGP API&lt;/a&gt;. For details about how to use BgpConf and BgpPeer to configure Porter in BGP mode, see &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/&#34;&gt;Configure Porter in BGP Mode&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;PorterLB uses &lt;a href=&#34;https://github.com/osrg/gobgp&#34;&gt;GoBGP&lt;/a&gt; (integrated in PorterLB) to establish a BGP connection for route publishing. Two &lt;a href=&#34;https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/&#34;&gt;CustomResourceDefinitions (CRDs)&lt;/a&gt;, BgpConf and BgpPeer, are provided for users to configure the local and peer BGP properties on PorterLB. BgpConf and BgpPeer are designed according to the &lt;a href=&#34;https://github.com/osrg/gobgp/blob/master/api/gobgp.pb.go&#34;&gt;GoBGP API&lt;/a&gt;. For details about how to use BgpConf and BgpPeer to configure PorterLB in BGP mode, see &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/&#34;&gt;Configure PorterLB in BGP Mode&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Build the Porter Project</title>
+      <title>Docs: Build the PorterLB Project</title>
       <link>/docs/building-and-contributing/build-the-porter-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -46,7 +46,7 @@
       <description>
         
         
-        &lt;p&gt;This document describes how to build the Porter project for testing.&lt;/p&gt;
+        &lt;p&gt;This document describes how to build the PorterLB project for testing.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;You need to prepare a Linux environment.&lt;/li&gt;
@@ -57,11 +57,11 @@
 &lt;h2 id=&#34;procedure&#34;&gt;Procedure&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Visit &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;https://github.com/kubesphere/porter&lt;/a&gt; and click &lt;strong&gt;Fork&lt;/strong&gt; to fork the Porter repository to your own GitHub account.&lt;/p&gt;
+&lt;p&gt;Visit &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;https://github.com/kubesphere/porter&lt;/a&gt; and click &lt;strong&gt;Fork&lt;/strong&gt; to fork the PorterLB repository to your own GitHub account.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Log in to your environment, and run the following commands to clone the Porter repository and go to the &lt;code&gt;porter&lt;/code&gt; directory:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone &amp;lt;Address of your own Porter repository&amp;gt;
+&lt;p&gt;Log in to your environment, and run the following commands to clone the PorterLB repository and go to the &lt;code&gt;porter&lt;/code&gt; directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone &amp;lt;Address of your own PorterLB repository&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; porter
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
@@ -99,14 +99,14 @@
 &lt;p&gt;&lt;code&gt;IMG_AGENT&lt;/code&gt; specifies the repository and tag of the porter-agent image.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Currently, Porter uses only the porter-manager image. The porter-agent image will be used in future versions.&lt;/p&gt;
+&lt;p&gt;Currently, PorterLB uses only the porter-manager image. The porter-agent image will be used in future versions.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to deploy Porter as a plugin:&lt;/p&gt;
+&lt;p&gt;Run the following command to deploy PorterLB as a plugin:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f deploy/release.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -123,15 +123,15 @@
       <description>
         
         
-        &lt;p&gt;This document describes how to configure an Eip object, which functions as an IP address pool for Porter both in BGP mode and in Layer 2 mode.&lt;/p&gt;
-&lt;p&gt;Porter assigns IP addresses in Eip objects to LoadBalancer services in the Kubernetes cluster. After that, Porter publishes routes destined for the service IP addresses over BGP (in BGP mode), ARP (in Layer 2 mode for IPv4), or NDP (in Layer 2 mode for IPv6).&lt;/p&gt;
+        &lt;p&gt;This document describes how to configure an Eip object, which functions as an IP address pool for PorterLB both in BGP mode and in Layer 2 mode.&lt;/p&gt;
+&lt;p&gt;PorterLB assigns IP addresses in Eip objects to LoadBalancer Services in the Kubernetes cluster. After that, PorterLB publishes routes destined for the Service IP addresses over BGP (in BGP mode), ARP (in Layer 2 mode for IPv4), or NDP (in Layer 2 mode for IPv6).&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
-  &lt;div&gt;Currently, Porter supports only IPv4 and will soon support IPv6.&lt;/div&gt;
+  &lt;div&gt;Currently, PorterLB supports only IPv4 and will soon support IPv6.&lt;/div&gt;
 &lt;/div&gt;
-&lt;h2 id=&#34;configure-an-eip-object-for-porter&#34;&gt;Configure an Eip Object for Porter&lt;/h2&gt;
-&lt;p&gt;You can create an Eip object to provide an IP address pool for Porter. The following is an example of the Eip YAML configuration:&lt;/p&gt;
+&lt;h2 id=&#34;configure-an-eip-object-for-porterlb&#34;&gt;Configure an Eip Object for PorterLB&lt;/h2&gt;
+&lt;p&gt;You can create an Eip object to provide an IP address pool for PorterLB. The following is an example of the Eip YAML configuration:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;network.kubesphere.io/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Eip&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -159,7 +159,7 @@
 &lt;p&gt;&lt;code&gt;spec&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;address&lt;/code&gt;: One or more IP addresses, which will be used by Porter. The value format can be:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;address&lt;/code&gt;: One or more IP addresses, which will be used by PorterLB. The value format can be:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;IP address&lt;/code&gt;, for example, &lt;code&gt;192.168.0.100&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;IP address/Subnet mask&lt;/code&gt;, for example, &lt;code&gt;192.168.0.0/24&lt;/code&gt;.&lt;/li&gt;
@@ -172,21 +172,21 @@
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;protocol&lt;/code&gt;: Specifies which mode of Porter the Eip object is used for. The value can be either &lt;code&gt;layer2&lt;/code&gt; or &lt;code&gt;bgp&lt;/code&gt;. If this field is not specified, the default value &lt;code&gt;bgp&lt;/code&gt; is used.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;protocol&lt;/code&gt;: Specifies which mode of PorterLB the Eip object is used for. The value can be either &lt;code&gt;layer2&lt;/code&gt; or &lt;code&gt;bgp&lt;/code&gt;. If this field is not specified, the default value &lt;code&gt;bgp&lt;/code&gt; is used.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;interface&lt;/code&gt;: NIC on which Porter listens for ARP or NDP requests. This field is valid only when &lt;code&gt;protocol&lt;/code&gt; is set to &lt;code&gt;layer2&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;interface&lt;/code&gt;: NIC on which PorterLB listens for ARP or NDP requests. This field is valid only when &lt;code&gt;protocol&lt;/code&gt; is set to &lt;code&gt;layer2&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;notices tip&#34;&gt;
   
   &lt;p&gt;TIP&lt;/p&gt;
-  &lt;div&gt;If the NIC names of the Kubernetes cluster nodes are different, you can set the value to &lt;code&gt;can_reach:IP address&lt;/code&gt; (for example, &lt;code&gt;can_reach:192.168.0.5&lt;/code&gt;) so that Porter automatically obtains the name of the NIC that can reach the IP address. In this case, you must ensure that the IP address is not used by Kubernetes cluster nodes but can be reached by the cluster nodes.&lt;/div&gt;
+  &lt;div&gt;If the NIC names of the Kubernetes cluster nodes are different, you can set the value to &lt;code&gt;can_reach:IP address&lt;/code&gt; (for example, &lt;code&gt;can_reach:192.168.0.5&lt;/code&gt;) so that PorterLB automatically obtains the name of the NIC that can reach the IP address. In this case, you must ensure that the IP address is not used by Kubernetes cluster nodes but can be reached by the cluster nodes.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;disable&lt;/code&gt;: Specifies whether the Eip object is disabled. The value can be:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;false&lt;/code&gt;: Porter can assign IP addresses in the Eip object to new LoadBalancer services.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;true&lt;/code&gt;: Porter stops assigning IP addresses in the Eip object to new LoadBalancer services. Existing services are not affected.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;false&lt;/code&gt;: PorterLB can assign IP addresses in the Eip object to new LoadBalancer Services.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;true&lt;/code&gt;: PorterLB stops assigning IP addresses in the Eip object to new LoadBalancer Services. Existing Services are not affected.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -196,10 +196,10 @@
 &lt;p&gt;&lt;code&gt;occupied&lt;/code&gt;: Specifies whether IP addresses in the Eip object have been used up.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;usage&lt;/code&gt;: Specifies how many IP addresses in the Eip object have been assigned to services.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;usage&lt;/code&gt;: Specifies how many IP addresses in the Eip object have been assigned to Services.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;used&lt;/code&gt;: Specifies the used IP addresses and the services that use the IP addresses. The services are displayed in the &lt;code&gt;Namespace/Service name&lt;/code&gt; format (for example, &lt;code&gt;default/test-svc&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;used&lt;/code&gt;: Specifies the used IP addresses and the Services that use the IP addresses. The Services are displayed in the &lt;code&gt;Namespace/Service name&lt;/code&gt; format (for example, &lt;code&gt;default/test-svc&lt;/code&gt;).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;poolSize&lt;/code&gt;: Total number of IP addresses in the Eip object.&lt;/p&gt;
@@ -211,10 +211,10 @@
 &lt;p&gt;&lt;code&gt;lastIP&lt;/code&gt;: Last IP address in the Eip object.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;v4&lt;/code&gt;: Specifies whether the address family is IPv4. Currently, Porter supports only IPv4 and the value can only be &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;v4&lt;/code&gt;: Specifies whether the address family is IPv4. Currently, PorterLB supports only IPv4 and the value can only be &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;ready&lt;/code&gt;: Specifies whether the Eip-associated program used for BGP/ARP/NDP routes publishing has been initialized. The program is integrated in Porter.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ready&lt;/code&gt;: Specifies whether the Eip-associated program used for BGP/ARP/NDP routes publishing has been initialized. The program is integrated in PorterLB.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -222,7 +222,7 @@
     </item>
     
     <item>
-      <title>Docs: Install Porter on Kubernetes</title>
+      <title>Docs: Install PorterLB on Kubernetes</title>
       <link>/docs/getting-started/installation/install-porter-on-kubernetes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -230,59 +230,59 @@
       <description>
         
         
-        &lt;p&gt;This document describes how to use kubectl and &lt;a href=&#34;https://helm.sh/&#34;&gt;Helm&lt;/a&gt; to install and delete Porter in a Kubernetes cluster.&lt;/p&gt;
+        &lt;p&gt;This document describes how to use kubectl and &lt;a href=&#34;https://helm.sh/&#34;&gt;Helm&lt;/a&gt; to install and delete PorterLB in a Kubernetes cluster.&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
-&lt;li&gt;In a Kubernetes cluster, you only need to install Porter once. After the installation is complete, a porter-manager deployment that contains a porter-manager pod is installed in the cluster. The porter-manager pod implements the functionality of Porter for the entire Kubernetes cluster.&lt;/li&gt;
-&lt;li&gt;After the installation is complete, you can scale the porter-manager deployment and assign multiple Porter replicas (porter-manager pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas&#34;&gt;Configure Multiple Porter Replicas&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;In a Kubernetes cluster, you only need to install PorterLB once. After the installation is complete, a porter-manager Deployment that contains a porter-manager Pod is installed in the cluster. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster.&lt;/li&gt;
+&lt;li&gt;After the installation is complete, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager Pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas&#34;&gt;Configure Multiple PorterLB Replicas&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;You need to prepare a Kubernetes cluster, and ensure that the Kubernetes version is 1.15 or later. Porter requires CustomResourceDefinition (CRD) v1, which is only supported by Kubernetes 1.15 or later. You can use the following methods to deploy a Kubernetes cluster:&lt;/p&gt;
+&lt;p&gt;You need to prepare a Kubernetes cluster, and ensure that the Kubernetes version is 1.15 or later. PorterLB requires CustomResourceDefinition (CRD) v1, which is only supported by Kubernetes 1.15 or later. You can use the following methods to deploy a Kubernetes cluster:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Use &lt;a href=&#34;https://kubesphere.io/docs/installing-on-linux/&#34;&gt;KubeKey&lt;/a&gt; (recommended). You can use KubeKey to deploy a Kubernetes cluster with or without KubeSphere.&lt;/li&gt;
 &lt;li&gt;Follow &lt;a href=&#34;https://kubernetes.io/docs/home/&#34;&gt;official Kubernetes guides&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Porter is designed to be used in bare-metal Kubernetes environments. However, you can also use a cloud-based Kubernetes cluster for learning and testing.&lt;/p&gt;
+&lt;p&gt;PorterLB is designed to be used in bare-metal Kubernetes environments. However, you can also use a cloud-based Kubernetes cluster for learning and testing.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;If you use Helm to install porter, ensure that the Helm version is Helm 3.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;install-porter-using-kubectl&#34;&gt;Install Porter Using kubectl&lt;/h2&gt;
+&lt;h2 id=&#34;install-porterlb-using-kubectl&#34;&gt;Install PorterLB Using kubectl&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Log in to the Kubernetes cluster over SSH and run the following command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f https://raw.githubusercontent.com/kubesphere/porter/master/deploy/porter.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, Porter has been installed successfully.&lt;/p&gt;
+&lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-kubectl.jpg&#34; alt=&#34;verify-porter-kubectl&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;delete-porter-using-kubectl&#34;&gt;Delete Porter Using kubectl&lt;/h2&gt;
+&lt;h2 id=&#34;delete-porterlb-using-kubectl&#34;&gt;Delete PorterLB Using kubectl&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;To delete Porter, log in to the Kubernetes cluster and run the following command:&lt;/p&gt;
+&lt;p&gt;To delete PorterLB, log in to the Kubernetes cluster and run the following command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl delete -f https://raw.githubusercontent.com/kubesphere/porter/master/deploy/porter.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
-  &lt;div&gt;Before deleting Porter, you must first delete all services that use Porter.&lt;/div&gt;
+  &lt;div&gt;Before deleting PorterLB, you must first delete all Services that use PorterLB.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to check the result. If the porter-system namespace does not exist, Porter has been deleted successfully.&lt;/p&gt;
+&lt;p&gt;Run the following command to check the result. If the porter-system namespace does not exist, PorterLB has been deleted successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get ns
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-deletion-kubectl.jpg&#34; alt=&#34;verify-porter-deletion-kubectl&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;install-porter-using-helm&#34;&gt;Install Porter Using Helm&lt;/h2&gt;
+&lt;h2 id=&#34;install-porterlb-using-helm&#34;&gt;Install PorterLB Using Helm&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Log in to the Kubernetes cluster over SSH and run the following commands:&lt;/p&gt;
@@ -291,24 +291,24 @@ helm repo update
 helm install porter test/porter
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, Porter has been installed successfully.&lt;/p&gt;
+&lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -A
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-helm.jpg&#34; alt=&#34;verify-porter-helm&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;delete-porter-using-helm&#34;&gt;Delete Porter Using Helm&lt;/h2&gt;
+&lt;h2 id=&#34;delete-porterlb-using-helm&#34;&gt;Delete PorterLB Using Helm&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;To delete Porter, run the following command:&lt;/p&gt;
+&lt;p&gt;To delete PorterLB, run the following command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm delete porter
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
-  &lt;div&gt;Before deleting Porter, you must first delete all services that use Porter.&lt;/div&gt;
+  &lt;div&gt;Before deleting PorterLB, you must first delete all Services that use PorterLB.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to check the result. If the Porter application does not exist, Porter has been deleted successfully.&lt;/p&gt;
+&lt;p&gt;Run the following command to check the result. If the PorterLB application does not exist, PorterLB has been deleted successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm ls
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-deletion-helm.jpg&#34; alt=&#34;verify-porter-deletion-helm&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -326,26 +326,26 @@ helm install porter test/porter
       <description>
         
         
-        &lt;p&gt;This document describes the network topology of Porter in Layer 2 mode and how Porter functions in Layer 2 mode.&lt;/p&gt;
-&lt;p&gt;Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, BGP may be unavailable in certain systems because of security requirements or because the router does not support BGP. In this case, you can use Porter in Layer 2 mode to achieve similar functionality.&lt;/p&gt;
+        &lt;p&gt;This document describes the network topology of PorterLB in Layer 2 mode and how PorterLB functions in Layer 2 mode.&lt;/p&gt;
+&lt;p&gt;Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, BGP may be unavailable in certain systems because of security requirements or because the router does not support BGP. In this case, you can use PorterLB in Layer 2 mode to achieve similar functionality.&lt;/p&gt;
 &lt;h2 id=&#34;network-topology&#34;&gt;Network Topology&lt;/h2&gt;
-&lt;p&gt;The following figure shows the topology of the network between a Kubernetes cluster with Porter and a router.&lt;/p&gt;
+&lt;p&gt;The following figure shows the topology of the network between a Kubernetes cluster with PorterLB and a router.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/concepts/layer-2-mode/porter-layer-2-topology.jpg&#34; alt=&#34;porter-layer-2-topology&#34;&gt;&lt;/p&gt;
 &lt;p&gt;IP addresses and MAC addresses in the preceding figure are examples only. The topology is described as follows:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;A service backed by two pods is deployed in the Kubernetes cluster, and is assigned an IP address 192.168.0.91 for external access. The service IP address is on the same network segment as the cluster node IP addresses.&lt;/li&gt;
-&lt;li&gt;Porter installed in the Kubernetes cluster randomly selects a node (worker 1 in this example) to handle service requests. After that, Porter sends an ARP/NDP packet to the router, which maps the service IP address to the MAC address of worker 1.&lt;/li&gt;
-&lt;li&gt;If multiple porter-manager replicas have been deployed in the cluster, Porter uses the the leader election feature of Kubernetes to ensure that only one replica responds to ARP/NDP requests.&lt;/li&gt;
-&lt;li&gt;When an external client machine attempts to access the service, the router forwards the service traffic to worker 1 based on the mapping between the service IP address and the MAC address of worker 1. After the service traffic reaches worker 1, kube-proxy can further forward the traffic to other nodes for load balancing (both pod 1 and pod 2 can be reached over kube-proxy).&lt;/li&gt;
-&lt;li&gt;If worker 1 fails, Porter re-sends an APR/NDP packet to the router to map the service IP address to the MAC address of worker 2, and the service traffic switches to worker 2.&lt;/li&gt;
+&lt;li&gt;A Service backed by two Pods is deployed in the Kubernetes cluster, and is assigned an IP address 192.168.0.91 for external access. The Service IP address is on the same network segment as the cluster node IP addresses.&lt;/li&gt;
+&lt;li&gt;PorterLB installed in the Kubernetes cluster randomly selects a node (worker 1 in this example) to handle Service requests. After that, PorterLB sends an ARP/NDP packet to the router, which maps the Service IP address to the MAC address of worker 1.&lt;/li&gt;
+&lt;li&gt;If multiple porter-manager replicas have been deployed in the cluster, PorterLB uses the the leader election feature of Kubernetes to ensure that only one replica responds to ARP/NDP requests.&lt;/li&gt;
+&lt;li&gt;When an external client machine attempts to access the Service, the router forwards the Service traffic to worker 1 based on the mapping between the Service IP address and the MAC address of worker 1. After the Service traffic reaches worker 1, kube-proxy can further forward the traffic to other nodes for load balancing (both Pod 1 and Pod 2 can be reached over kube-proxy).&lt;/li&gt;
+&lt;li&gt;If worker 1 fails, PorterLB re-sends an APR/NDP packet to the router to map the Service IP address to the MAC address of worker 2, and the Service traffic switches to worker 2.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;The Layer 2 mode has two limitations:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Worker 1 and worker 2 work in active-standby mode in terms of traffic forwarding. When a failover occurs, services in the Kubernetes cluster will be interrupted for a short while.&lt;/li&gt;
-&lt;li&gt;All service traffic is always sent to one node first and then forwarded to other nodes over kube-proxy in a second hop. Therefore, the service bandwidth is limited to the bandwidth of a single node, which causes a bandwidth bottleneck.&lt;/li&gt;
+&lt;li&gt;Worker 1 and worker 2 work in active-standby mode in terms of traffic forwarding. When a failover occurs, Services in the Kubernetes cluster will be interrupted for a short while.&lt;/li&gt;
+&lt;li&gt;All Service traffic is always sent to one node first and then forwarded to other nodes over kube-proxy in a second hop. Therefore, the Service bandwidth is limited to the bandwidth of a single node, which causes a bandwidth bottleneck.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
 &lt;/div&gt;
 
@@ -353,7 +353,7 @@ helm install porter test/porter
     </item>
     
     <item>
-      <title>Docs: Use Porter in BGP Mode</title>
+      <title>Docs: Use PorterLB in BGP Mode</title>
       <link>/docs/getting-started/usage/use-porter-in-bgp-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -361,19 +361,13 @@ helm install porter test/porter
       <description>
         
         
-        &lt;p&gt;This document demonstrates how to use Porter in BGP mode to expose a service backed by two pods. The BgpConf, BgpPeer, Eip, deployment and service described in this document are examples only and you need to customize the commands and YAML configurations based on your requirements.&lt;/p&gt;
-&lt;p&gt;Instead of using a real router, this document uses a Linux server with &lt;a href=&#34;https://bird.network.cz/&#34;&gt;BIRD&lt;/a&gt; to simulate a router so that users without a real router can also use Porter in BGP mode for tests.&lt;/p&gt;
+        &lt;p&gt;This document demonstrates how to use PorterLB in BGP mode to expose a Service backed by two Pods. The BgpConf, BgpPeer, Eip, Deployment and Service described in this document are examples only and you need to customize the commands and YAML configurations based on your requirements.&lt;/p&gt;
+&lt;p&gt;Instead of using a real router, this document uses a Linux server with &lt;a href=&#34;https://bird.network.cz/&#34;&gt;BIRD&lt;/a&gt; to simulate a router so that users without a real router can also use PorterLB in BGP mode for tests.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;You need to prepare a Kubernetes cluster where Porter has been installed. For details, see &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubernetes/&#34;&gt;Install Porter on Kubernetes (kubectl and Helm)&lt;/a&gt; and &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubesphere/&#34;&gt;Install Porter on KubeSphere (Web Console)&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;You need to prepare a Linux server that communicates with the Kubernetes cluster properly. BIRD will be installed on the server to simulate a BGP router.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If you use a real router instead of BIRD, the router must support BGP and Equal-Cost Multi-Path (ECMP) routing. In addition, the router must also support receiving multiple equivalent routes from the same neighbor.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;You need to &lt;a href=&#34;/docs/getting-started/installation/&#34;&gt;prepare a Kubernetes cluster where PorterLB has been installed&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;You need to prepare a Linux server that communicates with the Kubernetes cluster properly. BIRD will be installed on the server to simulate a BGP router.&lt;/li&gt;
+&lt;li&gt;If you use a real router instead of BIRD, the router must support BGP and Equal-Cost Multi-Path (ECMP) routing. In addition, the router must also support receiving multiple equivalent routes from the same neighbor.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This document uses the following devices as an example:&lt;/p&gt;
 &lt;table&gt;
@@ -388,7 +382,7 @@ helm install porter test/porter
 &lt;tr&gt;
 &lt;td&gt;master1&lt;/td&gt;
 &lt;td&gt;192.168.0.2&lt;/td&gt;
-&lt;td&gt;Kubernetes cluster master, where Porter is installed.&lt;/td&gt;
+&lt;td&gt;Kubernetes cluster master, where PorterLB is installed.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;worker-p001&lt;/td&gt;
@@ -420,7 +414,7 @@ sudo systemctl &lt;span style=&#34;color:#204a87&#34;&gt;enable&lt;/span&gt; bir
   
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
-&lt;li&gt;BIRD 1.5 does not support ECMP. To use all features of Porter, you are advised to install BIRD 1.6 or later.&lt;/li&gt;
+&lt;li&gt;BIRD 1.5 does not support ECMP. To use all features of PorterLB, you are advised to install BIRD 1.6 or later.&lt;/li&gt;
 &lt;li&gt;The preceding commands apply only to Debian-based OSs such as Debian and Ubuntu. On Red Hat-based OSs such as RHEL and CentOS, use &lt;a href=&#34;https://access.redhat.com/solutions/9934&#34;&gt;yum&lt;/a&gt; instead.&lt;/li&gt;
 &lt;li&gt;You can also install BIRD according to the &lt;a href=&#34;https://bird.network.cz/&#34;&gt;official BIRD documentation&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
@@ -492,7 +486,7 @@ protocol bgp neighbor1 {
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step-2-create-a-bgpconf-object&#34;&gt;Step 2: Create a BgpConf Object&lt;/h2&gt;
-&lt;p&gt;The BgpConf object is used to configure the local (Kubernetes cluster) BGP properties on Porter.&lt;/p&gt;
+&lt;p&gt;The BgpConf object is used to configure the local (Kubernetes cluster) BGP properties on PorterLB.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Run the following command to create a YAML file for the BgpConf object:&lt;/p&gt;
@@ -520,7 +514,7 @@ protocol bgp neighbor1 {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step-3-create-a-bgppeer-object&#34;&gt;Step 3: Create a BgpPeer Object&lt;/h2&gt;
-&lt;p&gt;The BgpPeer object is used to configure the peer (BIRD machine) BGP properties on Porter.&lt;/p&gt;
+&lt;p&gt;The BgpPeer object is used to configure the peer (BIRD machine) BGP properties on PorterLB.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Run the following command to create a YAML file for the BgpPeer object:&lt;/p&gt;
@@ -548,7 +542,7 @@ protocol bgp neighbor1 {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step-4-create-an-eip-object&#34;&gt;Step 4: Create an Eip Object&lt;/h2&gt;
-&lt;p&gt;The Eip object functions as an IP address pool for Porter.&lt;/p&gt;
+&lt;p&gt;The Eip object functions as an IP address pool for PorterLB.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Run the following command to create a YAML file for the Eip object:&lt;/p&gt;
@@ -574,10 +568,10 @@ protocol bgp neighbor1 {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step-5-create-a-deployment&#34;&gt;Step 5: Create a Deployment&lt;/h2&gt;
-&lt;p&gt;The following creates a deployment of two pods using the luksa/kubia image. Each pod returns its own pod name to external requests.&lt;/p&gt;
+&lt;p&gt;The following creates a Deployment of two Pods using the luksa/kubia image. Each Pod returns its own Pod name to external requests.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to create a YAML file for the deployment:&lt;/p&gt;
+&lt;p&gt;Run the following command to create a YAML file for the Deployment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vi porter-bgp.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
@@ -603,14 +597,14 @@ protocol bgp neighbor1 {
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;containerPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to create the deployment:&lt;/p&gt;
+&lt;p&gt;Run the following command to create the Deployment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f porter-bgp.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step-6-create-a-service&#34;&gt;Step 6: Create a Service&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to create a YAML file for the service:&lt;/p&gt;
+&lt;p&gt;Run the following command to create a YAML file for the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vi porter-bgp-svc.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
@@ -637,25 +631,25 @@ protocol bgp neighbor1 {
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
 &lt;li&gt;You must set &lt;code&gt;spec.type&lt;/code&gt; to &lt;code&gt;LoadBalancer&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;lb.kubesphere.io/v1alpha1: porter&lt;/code&gt; annotation specifies that the service uses Porter.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;protocol.porter.kubesphere.io/v1alpha1: bgp&lt;/code&gt; annotation specifies that Porter is used in BGP mode.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;eip.porter.kubesphere.io/v1alpha2: porter-bgp-eip&lt;/code&gt; annotation specifies the Eip object used by Porter. If this annotation is not configured, Porter automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; field (for example, &lt;code&gt;spec.loadBalancerIP: 172.22.0.2&lt;/code&gt;) to assign a specific IP address to the service.&lt;/li&gt;
-&lt;li&gt;In the BGP mode, you can set &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; of multiple services to the same value for IP address sharing (the services are distinguished by different service ports). In this case, you must set &lt;code&gt;spec.ports.port&lt;/code&gt; to different values and &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; to &lt;code&gt;Cluster&lt;/code&gt; for the services.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Cluster&lt;/code&gt; (default value), Porter uses all Kubernetes cluster nodes as the next hops destined for the service.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Local&lt;/code&gt;, Porter uses only Kubernetes cluster nodes that contain pods as the next hops destined for the service.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;lb.kubesphere.io/v1alpha1: porter&lt;/code&gt; annotation specifies that the Service uses PorterLB.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;protocol.porter.kubesphere.io/v1alpha1: bgp&lt;/code&gt; annotation specifies that PorterLB is used in BGP mode.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;eip.porter.kubesphere.io/v1alpha2: porter-bgp-eip&lt;/code&gt; annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; field (for example, &lt;code&gt;spec.loadBalancerIP: 172.22.0.2&lt;/code&gt;) to assign a specific IP address to the Service.&lt;/li&gt;
+&lt;li&gt;In the BGP mode, you can set &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; of multiple Services to the same value for IP address sharing (the Services are distinguished by different Service ports). In this case, you must set &lt;code&gt;spec.ports.port&lt;/code&gt; to different values and &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; to &lt;code&gt;Cluster&lt;/code&gt; for the Services.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Cluster&lt;/code&gt; (default value), PorterLB uses all Kubernetes cluster nodes as the next hops destined for the Service.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Local&lt;/code&gt;, PorterLB uses only Kubernetes cluster nodes that contain Pods as the next hops destined for the Service.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to create the service:&lt;/p&gt;
+&lt;p&gt;Run the following command to create the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f porter-bgp-svc.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;step-7-verify-porter-in-bgp-mode&#34;&gt;Step 7: Verify Porter in BGP Mode&lt;/h2&gt;
-&lt;p&gt;The following verifies whether Porter functions properly.&lt;/p&gt;
+&lt;h2 id=&#34;step-7-verify-porterlb-in-bgp-mode&#34;&gt;Step 7: Verify PorterLB in BGP Mode&lt;/h2&gt;
+&lt;p&gt;The following verifies whether PorterLB functions properly.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;In the Kubernetes cluster, run the following command to obtain the external IP address of the service:&lt;/p&gt;
+&lt;p&gt;In the Kubernetes cluster, run the following command to obtain the external IP address of the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get svc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/service-ip.jpg&#34; alt=&#34;service-ip&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -664,15 +658,15 @@ protocol bgp neighbor1 {
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/node-ips.jpg&#34; alt=&#34;node-ips&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;On the BIRD machine, run the following command to check the routing table. If equivalent routes using the Kubernetes cluster nodes as next hops destined for the service are displayed, Porter functions properly.&lt;/p&gt;
+&lt;p&gt;On the BIRD machine, run the following command to check the routing table. If equivalent routes using the Kubernetes cluster nodes as next hops destined for the Service are displayed, PorterLB functions properly.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip route
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, all Kubernetes cluster nodes are used as the next hops.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, all Kubernetes cluster nodes are used as the next hops.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-cluster.jpg&#34; alt=&#34;bgp-routes-cluster&#34;&gt;&lt;/p&gt;
-&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only Kubernetes cluster nodes that contain pods are used as the next hops.&lt;/p&gt;
+&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only Kubernetes cluster nodes that contain Pods are used as the next hops.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-local.jpg&#34; alt=&#34;bgp-routes-local&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;On the BIRD machine, run the following command to access the service:&lt;/p&gt;
+&lt;p&gt;On the BIRD machine, run the following command to access the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl 172.22.0.2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/access-service.jpg&#34; alt=&#34;access-service&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -682,7 +676,50 @@ protocol bgp neighbor1 {
     </item>
     
     <item>
-      <title>Docs: Configure Porter in BGP Mode</title>
+      <title>Docs: What do I do if the porter-manager Pod is stuck in pending state?</title>
+      <link>/docs/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;symptom&#34;&gt;Symptom&lt;/h2&gt;
+&lt;p&gt;During the installation of PorterLB, the porter-manager Pod is stuck in pending state.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/porter-manager-pending.jpg&#34; alt=&#34;porter-manager-pending&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;possible-cause&#34;&gt;Possible Cause&lt;/h2&gt;
+&lt;p&gt;PorterLB uses port 443 by default. If another component in the system has occupied port 443, the porter-manager Pod will be stuck in pending state.&lt;/p&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+&lt;p&gt;Perform the following steps to change port 443 of PorterLB. The namespace in the commands is only an example.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to edit the porter-manager Deployment:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl edit deployment porter-manager -n porter-system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change port 443 to a different value (for example, 30443) to avoid the port conflict:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;template&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;containers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;- --webhook-port=&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ports&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;containerPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;hostPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/verify-porter.jpg&#34; alt=&#34;verify-porter&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Configure PorterLB in BGP Mode</title>
       <link>/docs/getting-started/configuration/configure-porter-in-bgp-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -690,9 +727,9 @@ protocol bgp neighbor1 {
       <description>
         
         
-        &lt;p&gt;This document describes how to configure Porter in BGP mode. If Porter is used in Layer 2 mode, you do not need to configure Porter.&lt;/p&gt;
+        &lt;p&gt;This document describes how to configure PorterLB in BGP mode. If PorterLB is used in Layer 2 mode, you do not need to configure PorterLB.&lt;/p&gt;
 &lt;h2 id=&#34;configure-local-bgp-properties-using-bgpconf&#34;&gt;Configure Local BGP Properties Using BgpConf&lt;/h2&gt;
-&lt;p&gt;You can create a BgpConf object in the Kubernetes cluster to configure the local BGP properties on Porter. The following is an example of the BgpConf YAML configuration:&lt;/p&gt;
+&lt;p&gt;You can create a BgpConf object in the Kubernetes cluster to configure the local BGP properties on PorterLB. The following is an example of the BgpConf YAML configuration:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;network.kubesphere.io/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;BgpConf&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -704,16 +741,16 @@ protocol bgp neighbor1 {
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The fields are described as follows:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;metadata&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;name&lt;/code&gt;: BgpConf object name. Porter recognizes only the name &lt;code&gt;default&lt;/code&gt;. BgpConf objects with other names will be ignored.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt;: BgpConf object name. PorterLB recognizes only the name &lt;code&gt;default&lt;/code&gt;. BgpConf objects with other names will be ignored.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;spec&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;as&lt;/code&gt;: Local ASN, which must be different from the value of &lt;code&gt;spec.conf.peerAS&lt;/code&gt; in the BgpPeer configuration.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;listenPort&lt;/code&gt;: Port on which Porter listens. The default value is &lt;code&gt;179&lt;/code&gt; (default BGP port number). If other components (such as Calico) in the Kubernetes cluster also use BGP and port 179, you must set a different value to avoid the conflict.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;listenPort&lt;/code&gt;: Port on which PorterLB listens. The default value is &lt;code&gt;179&lt;/code&gt; (default BGP port number). If other components (such as Calico) in the Kubernetes cluster also use BGP and port 179, you must set a different value to avoid the conflict.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;routerID&lt;/code&gt;: Local router ID, which is usually set to the IP address of the master NIC of the Kubernetes master node. If this field is not specified, the first IP address of the node where porter-manager is located will be used.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;configure-peer-bgp-properties-using-bgppeer&#34;&gt;Configure Peer BGP Properties Using BgpPeer&lt;/h2&gt;
-&lt;p&gt;You can create a BgpPeer object in the Kubernetes cluster to configure the peer BGP properties on Porter. The following is an example of the BgpPeer YAML configuration:&lt;/p&gt;
+&lt;p&gt;You can create a BgpPeer object in the Kubernetes cluster to configure the peer BGP properties on PorterLB. The following is an example of the BgpPeer YAML configuration:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;network.kubesphere.io/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;BgpPeer&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -746,19 +783,19 @@ protocol bgp neighbor1 {
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;spec.afiSafis.addPaths.config&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;sendMax&lt;/code&gt;: Maximum number of equivalent routes that Porter can send to the peer BGP router for Equal-Cost Multi-Path (ECMP) routing. The default value is &lt;code&gt;10&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendMax&lt;/code&gt;: Maximum number of equivalent routes that PorterLB can send to the peer BGP router for Equal-Cost Multi-Path (ECMP) routing. The default value is &lt;code&gt;10&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;spec.nodeSelector.matchLabels&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;porter.kubesphere.io/rack&lt;/code&gt;: If the Kubernetes cluster nodes are deployed under different routers and each node has one Porter replica, you need to configure this field so that the Porter replica on the correct node establishes a BGP connection with the peer BGP router. By default, all porter-manager replicas will respond to the BgpPeer configuration and attempt to establish a BGP connection with the peer BGP router.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;porter.kubesphere.io/rack&lt;/code&gt;: If the Kubernetes cluster nodes are deployed under different routers and each node has one PorterLB replica, you need to configure this field so that the PorterLB replica on the correct node establishes a BGP connection with the peer BGP router. By default, all porter-manager replicas will respond to the BgpPeer configuration and attempt to establish a BGP connection with the peer BGP router.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Other fields under &lt;code&gt;spec.afiSafis&lt;/code&gt; specify the address family. Currently, Porter supports only IPv4 and you can directly use the values in the example configuration.&lt;/p&gt;
+&lt;p&gt;Other fields under &lt;code&gt;spec.afiSafis&lt;/code&gt; specify the address family. Currently, PorterLB supports only IPv4 and you can directly use the values in the example configuration.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Contribute to the Porter Project</title>
+      <title>Docs: Contribute to the PorterLB Project</title>
       <link>/docs/building-and-contributing/contribute-to-the-porter-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -766,20 +803,20 @@ protocol bgp neighbor1 {
       <description>
         
         
-        &lt;p&gt;Porter is an open-source project and a sub-project of &lt;a href=&#34;https://github.com/kubesphere&#34;&gt;KubeSphere&lt;/a&gt;. Contributions in all forms are always welcome!&lt;/p&gt;
+        &lt;p&gt;PorterLB is an open-source project and a sub-project of &lt;a href=&#34;https://github.com/kubesphere&#34;&gt;KubeSphere&lt;/a&gt;. Contributions in all forms are always welcome!&lt;/p&gt;
 &lt;h2 id=&#34;new-feature-proposals&#34;&gt;New Feature Proposals&lt;/h2&gt;
-&lt;p&gt;If you have any ideas or suggestions, please send &lt;a href=&#34;https://github.com/kubesphere/community/blob/master/contribution/design-proposal-template.md&#34;&gt;design proposals&lt;/a&gt; to the &lt;a href=&#34;https://github.com/kubesphere/kubesphere/issues&#34;&gt;GitHub Porter Repository Issues&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have any ideas or suggestions, please send &lt;a href=&#34;https://github.com/kubesphere/community/blob/master/contribution/design-proposal-template.md&#34;&gt;design proposals&lt;/a&gt; to the &lt;a href=&#34;https://github.com/kubesphere/kubesphere/issues&#34;&gt;GitHub PorterLB Repository Issues&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;code-contributions&#34;&gt;Code Contributions&lt;/h2&gt;
-&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/community/tree/master/developer-guide&#34;&gt;developer guides&lt;/a&gt; at the KubeSphere Community, &lt;a href=&#34;/docs/building-and-contributing/build-the-porter-project&#34;&gt;build the Porter project&lt;/a&gt; locally for testing, and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;GitHub Porter Repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/community/tree/master/developer-guide&#34;&gt;developer guides&lt;/a&gt; at the KubeSphere Community, &lt;a href=&#34;/docs/building-and-contributing/build-the-porter-project&#34;&gt;build the PorterLB project&lt;/a&gt; locally for testing, and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;GitHub PorterLB Repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;document-contributions&#34;&gt;Document Contributions&lt;/h2&gt;
 &lt;p&gt;Both original documents and localization works are welcome!&lt;/p&gt;
-&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/KubeSphere%20Documentation%20Style%20Guide.md&#34;&gt;KubeSphere Documentation Style Guide&lt;/a&gt; and &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/localization_style_guides/KubeSphere%20Localization%20Style%20Guide%20(for%20Simplified%20Chinese).md&#34;&gt;KubeSphere Localization Style Guide&lt;/a&gt; and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter-website&#34;&gt;GitHub Porter Website Repository&lt;/a&gt;. All documents of Porter are located in the &lt;a href=&#34;https://github.com/kubesphere/porter-website/tree/master/content&#34;&gt;content&lt;/a&gt; directory.&lt;/p&gt;
+&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/KubeSphere%20Documentation%20Style%20Guide.md&#34;&gt;KubeSphere Documentation Style Guide&lt;/a&gt; and &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/localization_style_guides/KubeSphere%20Localization%20Style%20Guide%20(for%20Simplified%20Chinese).md&#34;&gt;KubeSphere Localization Style Guide&lt;/a&gt; and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter-website&#34;&gt;GitHub PorterLB Website Repository&lt;/a&gt;. All documents of PorterLB are located in the &lt;a href=&#34;https://github.com/kubesphere/porter-website/tree/master/content&#34;&gt;content&lt;/a&gt; directory.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Install Porter on KubeSphere</title>
+      <title>Docs: Install PorterLB on KubeSphere</title>
       <link>/docs/getting-started/installation/install-porter-on-kubesphere/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -787,23 +824,23 @@ protocol bgp neighbor1 {
       <description>
         
         
-        &lt;p&gt;This document describes how to install and delete Porter on the &lt;a href=&#34;https://kubesphere.io/&#34;&gt;KubeSphere&lt;/a&gt; web console.&lt;/p&gt;
+        &lt;p&gt;This document describes how to install and delete PorterLB on the &lt;a href=&#34;https://kubesphere.io/&#34;&gt;KubeSphere&lt;/a&gt; web console.&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
-&lt;li&gt;In a Kubernetes cluster, you only need to install Porter once. After the installation is complete, a porter-manager deployment that contains a porter-manager pod is installed in the cluster. The porter-manager pod implements the functionality of Porter for the entire Kubernetes cluster.&lt;/li&gt;
-&lt;li&gt;After the installation is complete, you can scale the porter-manager deployment and assign multiple Porter replicas (porter-manager pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas/&#34;&gt;Configure Multiple Porter Replicas&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;In a Kubernetes cluster, you only need to install PorterLB once. After the installation is complete, a porter-manager Deployment that contains a porter-manager Pod is installed in the cluster. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster.&lt;/li&gt;
+&lt;li&gt;After the installation is complete, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager Pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas/&#34;&gt;Configure Multiple PorterLB Replicas&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;You need to prepare a Kubernetes cluster with KubeSphere, and ensure that the Kubernetes version is 1.15 or later. Porter requires CustomResourceDefinition (CRD) v1, which is only supported by Kubernetes 1.15 or later. You can use the following methods to install KubeSphere:&lt;/p&gt;
+&lt;p&gt;You need to prepare a Kubernetes cluster with KubeSphere, and ensure that the Kubernetes version is 1.15 or later. PorterLB requires CustomResourceDefinition (CRD) v1, which is only supported by Kubernetes 1.15 or later. You can use the following methods to install KubeSphere:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://kubesphere.io/docs/installing-on-linux/&#34;&gt;Deploy a new Kubernetes cluster with KubeSphere&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://kubesphere.io/docs/installing-on-kubernetes/&#34;&gt;Install KubeSphere in an existing Kubernetes cluster&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Porter is designed to be used in bare-metal Kubernetes environments. However, you can also use a cloud-based Kubernetes cluster for learning and testing.&lt;/p&gt;
-&lt;h2 id=&#34;install-porter-on-the-kubesphere-web-console&#34;&gt;Install Porter on the KubeSphere Web Console&lt;/h2&gt;
+&lt;p&gt;PorterLB is designed to be used in bare-metal Kubernetes environments. However, you can also use a cloud-based Kubernetes cluster for learning and testing.&lt;/p&gt;
+&lt;h2 id=&#34;install-porterlb-on-the-kubesphere-web-console&#34;&gt;Install PorterLB on the KubeSphere Web Console&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Log in to the KubeSphere console and go to your workspace.&lt;/p&gt;
@@ -835,24 +872,24 @@ protocol bgp neighbor1 {
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-yaml.jpg&#34; alt=&#34;porter-yaml&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Pods&lt;/strong&gt; on the left navigation bar to check whether the status of porter-manager is &lt;strong&gt;running&lt;/strong&gt;. If yes, porter has been installed successfully.&lt;/p&gt;
+&lt;p&gt;Choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Pods&lt;/strong&gt; on the left navigation bar to check whether the status of porter-manager is &lt;strong&gt;running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/verify-porter.jpg&#34; alt=&#34;verify-porter&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;delete-porter-on-the-kubesphere-web-console&#34;&gt;Delete Porter on the KubeSphere Web Console&lt;/h2&gt;
-&lt;p&gt;To delete Porter on the KubeSphere web console, go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, click &lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-operation.jpg&#34; alt=&#34;porter-operation&#34;&gt; on the right of the Porter application, and choose &lt;strong&gt;Delete&lt;/strong&gt; from the drop-down list.&lt;/p&gt;
+&lt;h2 id=&#34;delete-porterlb-on-the-kubesphere-web-console&#34;&gt;Delete PorterLB on the KubeSphere Web Console&lt;/h2&gt;
+&lt;p&gt;To delete PorterLB on the KubeSphere web console, go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, click &lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-operation.jpg&#34; alt=&#34;porter-operation&#34;&gt; on the right of the PorterLB application, and choose &lt;strong&gt;Delete&lt;/strong&gt; from the drop-down list.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/delete-porter.jpg&#34; alt=&#34;delete-porter&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
-  &lt;div&gt;Before deleting Porter, you must first delete all services that use Porter.&lt;/div&gt;
+  &lt;div&gt;Before deleting PorterLB, you must first delete all Services that use PorterLB.&lt;/div&gt;
 &lt;/div&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Use Porter in Layer 2 Mode</title>
+      <title>Docs: Use PorterLB in Layer 2 Mode</title>
       <link>/docs/getting-started/usage/use-porter-in-layer-2-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -860,11 +897,11 @@ protocol bgp neighbor1 {
       <description>
         
         
-        &lt;p&gt;This document demonstrates how to use Porter in Layer 2 mode to expose a service backed by two pods. The Eip, deployment and service described in this document are examples only and you need to customize the commands and YAML configurations based on your requirements.&lt;/p&gt;
+        &lt;p&gt;This document demonstrates how to use PorterLB in Layer 2 mode to expose a Service backed by two Pods. The Eip, Deployment and Service described in this document are examples only and you need to customize the commands and YAML configurations based on your requirements.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;You need to prepare a Kubernetes cluster where Porter has been installed. For details, see &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubernetes/&#34;&gt;Install Porter on Kubernetes (kubectl and Helm)&lt;/a&gt; and &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubesphere/&#34;&gt;Install Porter on KubeSphere (Web Console)&lt;/a&gt;. All Kubernetes cluster nodes must be on the same Layer 2 network (under the same router).&lt;/li&gt;
-&lt;li&gt;You need to prepare a client machine, which is used to verify whether Porter functions properly in Layer 2 mode. The client machine needs to be on the same network as the Kubernetes cluster nodes.&lt;/li&gt;
+&lt;li&gt;You need to &lt;a href=&#34;/docs/getting-started/installation/&#34;&gt;prepare a Kubernetes cluster where PorterLB has been installed&lt;/a&gt;. All Kubernetes cluster nodes must be on the same Layer 2 network (under the same router).&lt;/li&gt;
+&lt;li&gt;You need to prepare a client machine, which is used to verify whether PorterLB functions properly in Layer 2 mode. The client machine needs to be on the same network as the Kubernetes cluster nodes.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This document uses the following devices as an example:&lt;/p&gt;
 &lt;table&gt;
@@ -904,7 +941,7 @@ protocol bgp neighbor1 {
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;step-1-enable-strictarp-for-kube-proxy&#34;&gt;Step 1: Enable strictARP for kube-proxy&lt;/h2&gt;
-&lt;p&gt;In Layer 2 mode, you need to enable strictARP for kube-proxy so that all NICs in the Kubernetes cluster stop answering ARP requests from other NICs and Porter handles ARP requests instead.&lt;/p&gt;
+&lt;p&gt;In Layer 2 mode, you need to enable strictARP for kube-proxy so that all NICs in the Kubernetes cluster stop answering ARP requests from other NICs and PorterLB handles ARP requests instead.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Log in to the Kubernetes cluster and run the following command to edit the kube-proxy ConfigMap:&lt;/p&gt;
@@ -920,13 +957,13 @@ protocol bgp neighbor1 {
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl rollout restart daemonset kube-proxy -n kube-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;step-2-specify-the-nic-used-for-porter&#34;&gt;Step 2: Specify the NIC Used for Porter&lt;/h2&gt;
-&lt;p&gt;If the node where Porter is installed has multiple NICs, you need to specify the NIC used for Porter in Layer 2 mode. You can skip this step if the node has only one NIC.&lt;/p&gt;
-&lt;p&gt;In this example, the master1 node where Porter is installed has two NICs (eth0 192.168.0.2 and eth1 192.168.1.2), and eth0 192.168.0.2 will be used for Porter.&lt;/p&gt;
+&lt;h2 id=&#34;step-2-specify-the-nic-used-for-porterlb&#34;&gt;Step 2: Specify the NIC Used for PorterLB&lt;/h2&gt;
+&lt;p&gt;If the node where PorterLB is installed has multiple NICs, you need to specify the NIC used for PorterLB in Layer 2 mode. You can skip this step if the node has only one NIC.&lt;/p&gt;
+&lt;p&gt;In this example, the master1 node where PorterLB is installed has two NICs (eth0 192.168.0.2 and eth1 192.168.1.2), and eth0 192.168.0.2 will be used for PorterLB.&lt;/p&gt;
 &lt;p&gt;Run the following command to annotate master1 to specify the NIC:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl annotate nodes master1 layer2.porter.kubesphere.io/v1alpha1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;192.168.0.2&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;step-3-create-an-eip-object&#34;&gt;Step 3: Create an Eip Object&lt;/h2&gt;
-&lt;p&gt;The Eip object functions as an IP address pool for Porter.&lt;/p&gt;
+&lt;p&gt;The Eip object functions as an IP address pool for PorterLB.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Run the following command to create a YAML file for the Eip object:&lt;/p&gt;
@@ -962,10 +999,10 @@ protocol bgp neighbor1 {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step-4-create-a-deployment&#34;&gt;Step 4: Create a Deployment&lt;/h2&gt;
-&lt;p&gt;The following creates a deployment of two pods using the luksa/kubia image. Each pod returns its own pod name to external requests.&lt;/p&gt;
+&lt;p&gt;The following creates a Deployment of two Pods using the luksa/kubia image. Each Pod returns its own Pod name to external requests.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to create a YAML file for the deployment:&lt;/p&gt;
+&lt;p&gt;Run the following command to create a YAML file for the Deployment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vi porter-layer2.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
@@ -991,14 +1028,14 @@ protocol bgp neighbor1 {
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;containerPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to create the deployment:&lt;/p&gt;
+&lt;p&gt;Run the following command to create the Deployment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f porter-layer2.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;step-5-create-a-service&#34;&gt;Step 5: Create a Service&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to create a YAML file for the service:&lt;/p&gt;
+&lt;p&gt;Run the following command to create a YAML file for the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vi porter-layer2-svc.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
@@ -1025,24 +1062,24 @@ protocol bgp neighbor1 {
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
 &lt;li&gt;You must set &lt;code&gt;spec.type&lt;/code&gt; to &lt;code&gt;LoadBalancer&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;lb.kubesphere.io/v1alpha1: porter&lt;/code&gt; annotation specifies that the service uses Porter.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;protocol.porter.kubesphere.io/v1alpha1: layer2&lt;/code&gt; annotation specifies that Porter is used in Layer 2 mode.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;eip.porter.kubesphere.io/v1alpha2: porter-layer2-eip&lt;/code&gt; annotation specifies the Eip object used by Porter. If this annotation is not configured, Porter automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; field (for example, &lt;code&gt;spec.loadBalancerIP: 192.168.0.91&lt;/code&gt;) to assign a specific IP address to the service.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Cluster&lt;/code&gt; (default value), Porter randomly selects a node from all Kubernetes cluster nodes to handle service requests. Pods on other nodes can also be reached over kube-proxy.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Local&lt;/code&gt;, Porter randomly selects a node that contains a pod in the Kubernetes cluster to handle service requests. Only pods on the selected node can be reached.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;lb.kubesphere.io/v1alpha1: porter&lt;/code&gt; annotation specifies that the Service uses PorterLB.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;protocol.porter.kubesphere.io/v1alpha1: layer2&lt;/code&gt; annotation specifies that PorterLB is used in Layer 2 mode.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;eip.porter.kubesphere.io/v1alpha2: porter-layer2-eip&lt;/code&gt; annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; field (for example, &lt;code&gt;spec.loadBalancerIP: 192.168.0.91&lt;/code&gt;) to assign a specific IP address to the Service.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Cluster&lt;/code&gt; (default value), PorterLB randomly selects a node from all Kubernetes cluster nodes to handle Service requests. Pods on other nodes can also be reached over kube-proxy.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Local&lt;/code&gt;, PorterLB randomly selects a node that contains a Pod in the Kubernetes cluster to handle Service requests. Only Pods on the selected node can be reached.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to create the service:&lt;/p&gt;
+&lt;p&gt;Run the following command to create the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f porter-layer2-svc.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;step-6-verify-porter-in-layer-2-mode&#34;&gt;Step 6: Verify Porter in Layer 2 Mode&lt;/h2&gt;
-&lt;p&gt;The following verifies whether Porter functions properly.&lt;/p&gt;
+&lt;h2 id=&#34;step-6-verify-porterlb-in-layer-2-mode&#34;&gt;Step 6: Verify PorterLB in Layer 2 Mode&lt;/h2&gt;
+&lt;p&gt;The following verifies whether PorterLB functions properly.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;In the Kubernetes cluster, run the following command to obtain the external IP address of the service:&lt;/p&gt;
+&lt;p&gt;In the Kubernetes cluster, run the following command to obtain the external IP address of the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get svc porter-layer2-svc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-ip.jpg&#34; alt=&#34;service-ip&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -1052,28 +1089,28 @@ protocol bgp neighbor1 {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/node-ips.jpg&#34; alt=&#34;node-ips&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;In the Kubernetes cluster, run the following command to check the nodes of the pods:&lt;/p&gt;
+&lt;p&gt;In the Kubernetes cluster, run the following command to check the nodes of the Pods:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/pod-nodes.jpg&#34; alt=&#34;pod-nodes&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
-  &lt;div&gt;In this example, the pods are automatically assigned to different nodes. You can manually &lt;a href=&#34;https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/&#34;&gt;assign pods to different nodes&lt;/a&gt;.&lt;/div&gt;
+  &lt;div&gt;In this example, the Pods are automatically assigned to different nodes. You can manually &lt;a href=&#34;https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/&#34;&gt;assign Pods to different nodes&lt;/a&gt;.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;On the client machine, run the following commands to ping the service IP address and check the IP neighbors:&lt;/p&gt;
+&lt;p&gt;On the client machine, run the following commands to ping the Service IP address and check the IP neighbors:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ping 192.168.0.91
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip neigh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/ip-neigh.jpg&#34; alt=&#34;ip-neigh&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In the output of the &lt;code&gt;ip neigh&lt;/code&gt; command, the MAC address of the service IP address 192.168.0.91 is the same as that of worker-p001 192.168.0.3. Therefore, Porter has mapped the service IP address to the MAC address of worker-p001.&lt;/p&gt;
+&lt;p&gt;In the output of the &lt;code&gt;ip neigh&lt;/code&gt; command, the MAC address of the Service IP address 192.168.0.91 is the same as that of worker-p001 192.168.0.3. Therefore, PorterLB has mapped the Service IP address to the MAC address of worker-p001.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;On the client machine, run the following command to access the service:&lt;/p&gt;
+&lt;p&gt;On the client machine, run the following command to access the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl 192.168.0.91
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, both pods can be reached.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, both Pods can be reached.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-cluster.jpg&#34; alt=&#34;service-cluster&#34;&gt;&lt;/p&gt;
-&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only the pod on the node selected by Porter can be reached.&lt;/p&gt;
+&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only the Pod on the node selected by PorterLB can be reached.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-local.jpg&#34; alt=&#34;service-local&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -1082,7 +1119,7 @@ protocol bgp neighbor1 {
     </item>
     
     <item>
-      <title>Docs: Configure Porter for Multi-router Clusters (BGP Mode)</title>
+      <title>Docs: Configure PorterLB for Multi-router Clusters (BGP Mode)</title>
       <link>/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1090,7 +1127,7 @@ protocol bgp neighbor1 {
       <description>
         
         
-        &lt;p&gt;This document describes how to configure Porter in BGP mode for Kubernetes cluster nodes deployed under multiple routers. You can skip this document if all Kubernetes cluster nodes are deployed under the same router.&lt;/p&gt;
+        &lt;p&gt;This document describes how to configure PorterLB in BGP mode for Kubernetes cluster nodes deployed under multiple routers. You can skip this document if all Kubernetes cluster nodes are deployed under the same router.&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
@@ -1101,27 +1138,27 @@ protocol bgp neighbor1 {
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/multi-router-topology-1.jpg&#34; alt=&#34;multi-router-topology-1&#34;&gt;&lt;/p&gt;
 &lt;p&gt;IP addresses in the preceding figure are examples only. The topology is described as follows:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;In the Kubernetes cluster, the master and worker 1 nodes are deployed under the leaf 1 BGP router, and the worker 2 node is deployed under the leaf 2 BGP router. Porter is only installed under leaf 1 (by default, only one Porter replica is installed).&lt;/li&gt;
-&lt;li&gt;A service backed by two pods is deployed in the Kubernetes cluster, and is assigned an IP address 172.22.0.2 for external access. Pod 1 and pod 2 are deployed on worker 1 and worker 2 respectively.&lt;/li&gt;
-&lt;li&gt;Porter establishes a BGP connection with leaf 1 and publishes the IP addresses of the master node and worker 1 (192.168.0.3 and 192.168.0.4) to leaf 1 as the next hop destined for the service IP address 172.22.0.2.&lt;/li&gt;
-&lt;li&gt;Leaf 1 establishes a BGP connection with the spine BGP router and publishes its own IP address 192.168.0.2 to the spine router as the next hop destined for the service IP address 172.22.0.2.&lt;/li&gt;
-&lt;li&gt;When an external client machine attempts to access the service, the spine router forwards the service traffic to leaf 1, and leaf 1 load balances the traffic among the master node and worker 1.&lt;/li&gt;
-&lt;li&gt;Although pod 2 on worker 2 can also be reached over kube-proxy, router-level load balancing is implemented only among the master node and worker 1 and the service bandwidth is limited to the bandwidth of the master node and worker 1.&lt;/li&gt;
+&lt;li&gt;In the Kubernetes cluster, the master and worker 1 nodes are deployed under the leaf 1 BGP router, and the worker 2 node is deployed under the leaf 2 BGP router. PorterLB is only installed under leaf 1 (by default, only one PorterLB replica is installed).&lt;/li&gt;
+&lt;li&gt;A Service backed by two Pods is deployed in the Kubernetes cluster, and is assigned an IP address 172.22.0.2 for external access. Pod 1 and Pod 2 are deployed on worker 1 and worker 2 respectively.&lt;/li&gt;
+&lt;li&gt;PorterLB establishes a BGP connection with leaf 1 and publishes the IP addresses of the master node and worker 1 (192.168.0.3 and 192.168.0.4) to leaf 1 as the next hop destined for the Service IP address 172.22.0.2.&lt;/li&gt;
+&lt;li&gt;Leaf 1 establishes a BGP connection with the spine BGP router and publishes its own IP address 192.168.0.2 to the spine router as the next hop destined for the Service IP address 172.22.0.2.&lt;/li&gt;
+&lt;li&gt;When an external client machine attempts to access the Service, the spine router forwards the Service traffic to leaf 1, and leaf 1 load balances the traffic among the master node and worker 1.&lt;/li&gt;
+&lt;li&gt;Although Pod 2 on worker 2 can also be reached over kube-proxy, router-level load balancing is implemented only among the master node and worker 1 and the Service bandwidth is limited to the bandwidth of the master node and worker 1.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;To resolve the problem, you need to label the Kubernetes cluster nodes and change the Porter deployment configuration so that Porter is installed on nodes under all leaf routers. In addition, you need to specify the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec.nodeSelector.matchLabels&lt;/a&gt; field in the BgpPeer configuration so that the Porter replicas establish BGP connections with the correct BGP routers.&lt;/p&gt;
+&lt;p&gt;To resolve the problem, you need to label the Kubernetes cluster nodes and change the PorterLB Deployment configuration so that PorterLB is installed on nodes under all leaf routers. In addition, you need to specify the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec.nodeSelector.matchLabels&lt;/a&gt; field in the BgpPeer configuration so that the PorterLB replicas establish BGP connections with the correct BGP routers.&lt;/p&gt;
 &lt;h2 id=&#34;network-topology-after-configuration&#34;&gt;Network Topology After Configuration&lt;/h2&gt;
 &lt;p&gt;This section describes the configuration result you need to achieve. The following figure shows the network topology of a Kubernetes cluster after the configuration.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/multi-router-topology-2.jpg&#34; alt=&#34;multi-router-topology-2&#34;&gt;&lt;/p&gt;
 &lt;p&gt;IP addresses in the preceding figure are examples only. The topology is described as follows:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;After the configuration, Porter is installed on nodes under all leaf routers.&lt;/li&gt;
-&lt;li&gt;In addition to &lt;a href=&#34;#network-topology-before-configuration&#34;&gt;what happens before the configuration&lt;/a&gt;, the Porter replica installed under leaf 2 also establishes a BGP connection with leaf 2 and publishes the worker 2 IP address 192.168.1.2 to leaf 2 as the next hop destined for the service IP address 172.22.0.2.&lt;/li&gt;
-&lt;li&gt;Leaf 2 establishes a BGP connection with the spine router and publishes its own IP address 192.168.1.1 to the spine router as the next hop destined for the service IP address 172.22.0.2.&lt;/li&gt;
-&lt;li&gt;When an external client machine attempts to access the service, the spine router load balances the service traffic among leaf 1 and leaf 2. Leaf 1 load balances the traffic among the master node and worker 1. Leaf 2 forwards the traffic to worker 2. Therefore, the service traffic is load balanced among all three Kubernetes cluster nodes, and the service bandwidth of all three nodes can be utilized.&lt;/li&gt;
+&lt;li&gt;After the configuration, PorterLB is installed on nodes under all leaf routers.&lt;/li&gt;
+&lt;li&gt;In addition to &lt;a href=&#34;#network-topology-before-configuration&#34;&gt;what happens before the configuration&lt;/a&gt;, the PorterLB replica installed under leaf 2 also establishes a BGP connection with leaf 2 and publishes the worker 2 IP address 192.168.1.2 to leaf 2 as the next hop destined for the Service IP address 172.22.0.2.&lt;/li&gt;
+&lt;li&gt;Leaf 2 establishes a BGP connection with the spine router and publishes its own IP address 192.168.1.1 to the spine router as the next hop destined for the Service IP address 172.22.0.2.&lt;/li&gt;
+&lt;li&gt;When an external client machine attempts to access the Service, the spine router load balances the Service traffic among leaf 1 and leaf 2. Leaf 1 load balances the traffic among the master node and worker 1. Leaf 2 forwards the traffic to worker 2. Therefore, the Service traffic is load balanced among all three Kubernetes cluster nodes, and the Service bandwidth of all three nodes can be utilized.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;configuration-procedure&#34;&gt;Configuration Procedure&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
-&lt;p&gt;You need to prepare a Kubernetes cluster where Porter has been installed. For details, see &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubernetes/&#34;&gt;Install Porter on Kubernetes (kubectl and Helm)&lt;/a&gt; and &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubesphere/&#34;&gt;Install Porter on KubeSphere (Web Console)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You need to &lt;a href=&#34;/docs/getting-started/installation/&#34;&gt;prepare a Kubernetes cluster where PorterLB has been installed&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;procedure&#34;&gt;Procedure&lt;/h3&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
@@ -1130,44 +1167,44 @@ protocol bgp neighbor1 {
 &lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Log in to the Kubernetes cluster and run the following commands to label the Kubernetes cluster nodes where Porter is to be installed:&lt;/p&gt;
+&lt;p&gt;Log in to the Kubernetes cluster and run the following commands to label the Kubernetes cluster nodes where PorterLB is to be installed:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl label --overwrite nodes master1 worker-p002 lb.kubesphere.io/v1alpha1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;porter
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
-  &lt;div&gt;Porter works properly if it is installed on only one node under each leaf router. In this example, Porter will be installed on master1 under leaf1 and worker-p002 under leaf2. However, to ensure high availability in a production environment, you are advised to installed Porter on at least two nodes under each leaf router.&lt;/div&gt;
+  &lt;div&gt;PorterLB works properly if it is installed on only one node under each leaf router. In this example, PorterLB will be installed on master1 under leaf1 and worker-p002 under leaf2. However, to ensure high availability in a production environment, you are advised to installed PorterLB on at least two nodes under each leaf router.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to scale the number of porter-manager pods to 0:&lt;/p&gt;
+&lt;p&gt;Run the following command to scale the number of porter-manager Pods to 0:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl scale deployment porter-manager --replicas&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to edit the porter-manager deployment:&lt;/p&gt;
+&lt;p&gt;Run the following command to edit the porter-manager Deployment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl edit deployment porter-manager -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;In the porter-manager deployment YAML configuration, add the following fields under &lt;code&gt;spec.template.spec&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;In the porter-manager Deployment YAML configuration, add the following fields under &lt;code&gt;spec.template.spec&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nodeSelector&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kubernetes.io/os&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;linux&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;lb.kubesphere.io/v1alpha1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;porter&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to scale the number of porter-manager pods to the required number (change the number &lt;code&gt;2&lt;/code&gt; to the actual value):&lt;/p&gt;
+&lt;p&gt;Run the following command to scale the number of porter-manager Pods to the required number (change the number &lt;code&gt;2&lt;/code&gt; to the actual value):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl scale deployment porter-manager --replicas&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to check whether Porter has been installed on the required nodes.&lt;/p&gt;
+&lt;p&gt;Run the following command to check whether PorterLB has been installed on the required nodes.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system -o wide
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/verify-configuration-result.jpg&#34; alt=&#34;verify-configuration-result&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following commands to label the Kubernetes cluster nodes so that the Porter replicas establish BGP connections with the correct BGP routers.&lt;/p&gt;
+&lt;p&gt;Run the following commands to label the Kubernetes cluster nodes so that the PorterLB replicas establish BGP connections with the correct BGP routers.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl label --overwrite nodes master1 porter.kubesphere.io/rack&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;leaf1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl label --overwrite nodes worker-p002 porter.kubesphere.io/rack&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;leaf2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;When creating BgpPeer objects, configure the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec.nodeSelector.matchLabels&lt;/a&gt; field in the BgpPeer YAML configuration for each leaf router. The following YAML configurations specify that the Porter replica on master1 communicates with leaf1, and the Porter replica on worker-p002 communicates with leaf2.&lt;/p&gt;
+&lt;p&gt;When creating BgpPeer objects, configure the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec.nodeSelector.matchLabels&lt;/a&gt; field in the BgpPeer YAML configuration for each leaf router. The following YAML configurations specify that the PorterLB replica on master1 communicates with leaf1, and the PorterLB replica on worker-p002 communicates with leaf2.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# BgpPeer YAML for master1 and leaf1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nodeSelector&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;matchLabels&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -1183,7 +1220,149 @@ protocol bgp neighbor1 {
     </item>
     
     <item>
-      <title>Docs: Configure Multiple Porter Replicas</title>
+      <title>Docs: Install PorterLB on K3s</title>
+      <link>/docs/getting-started/installation/install-porter-on-k3s/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/installation/install-porter-on-k3s/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This document describes how to use kubectl and &lt;a href=&#34;https://helm.sh/&#34;&gt;Helm&lt;/a&gt; to install and delete PorterLB in a &lt;a href=&#34;https://k3s.io/&#34;&gt;K3s&lt;/a&gt; Kubernetes cluster.&lt;/p&gt;
+&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;&lt;ul&gt;
+&lt;li&gt;In a Kubernetes cluster, you only need to install PorterLB once. After the installation is complete, a porter-manager Deployment that contains a porter-manager Pod is installed in the cluster. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster.&lt;/li&gt;
+&lt;li&gt;After the installation is complete, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager Pods) to multiple cluster nodes to ensure high availability. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-multiple-porter-replicas&#34;&gt;Configure Multiple PorterLB Replicas&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You need to &lt;a href=&#34;https://rancher.com/docs/k3s/latest/en/installation/&#34;&gt;prepare a K3s Kubernetes cluster&lt;/a&gt;, and ensure that the Kubernetes version is 1.15 or later. PorterLB requires CustomResourceDefinition (CRD) v1, which is only supported by Kubernetes 1.15 or later. PorterLB is designed to be used in bare-metal Kubernetes environments. However, you can also use a cloud-based K3s Kubernetes cluster for learning and testing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you use Helm to install porter, ensure that the Helm version is Helm 3.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;install-porterlb-using-kubectl&#34;&gt;Install PorterLB Using kubectl&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Log in to the master node of the K3s Kubernetes cluster over SSH and run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl apply -f https://raw.githubusercontent.com/kubesphere/porter/master/deploy/porter.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to edit the porter-manager Deployment:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl edit deployment porter-manager -n porter-system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change port 443 to a different value (for example, 30443) to avoid a port conflict with K3s:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;template&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;containers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;- --webhook-port=&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ports&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;containerPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;hostPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;By default, both PorterLB and K3s use port 443. Therefore, you need to change port 443 of PorterLB to avoid the port conflict. For details, see the &lt;a href=&#34;https://rancher.com/docs/k3s/latest/en/networking/#traefik-ingress-controller&#34;&gt;official K3s document&lt;/a&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-kubectl.jpg&#34; alt=&#34;verify-porter-kubectl&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;delete-porterlb-using-kubectl&#34;&gt;Delete PorterLB Using kubectl&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To delete PorterLB, log in to the master node of the K3s Kubernetes cluster and run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl delete -f https://raw.githubusercontent.com/kubesphere/porter/master/deploy/porter.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;Before deleting PorterLB, you must first delete all Services that use PorterLB.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to check the result. If the porter-system namespace does not exist, PorterLB has been deleted successfully.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get ns
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-kubectl.jpg&#34; alt=&#34;verify-porter-deletion-kubectl&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;install-porterlb-using-helm&#34;&gt;Install PorterLB Using Helm&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Log in to the master node of the K3s Kubernetes cluster over SSH and run the following command to configure the environment variable:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;KUBECONFIG&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/etc/rancher/k3s/k3s.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;You need to configure this environment variable so that Helm can reach the K3s Kubernetes cluster. For details, see the &lt;a href=&#34;https://rancher.com/docs/k3s/latest/en/cluster-access/&#34;&gt;official K3s document&lt;/a&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following commands to install PorterLB:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm repo add &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; https://charts.kubesphere.io/test
+helm repo update
+helm install porter test/porter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to edit the porter-manager Deployment:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl edit deployment porter-manager
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change port 443 to a different value (for example, 30443) to avoid a port conflict with K3s:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;spec:
+  template:
+    spec:
+      containers:
+      - args:
+        - --webhook-port&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;
+        ports:
+        - containerPort: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;
+          hostPort: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change the port number.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;By default, both PorterLB and K3s use port 443. Therefore, you need to change port 443 of PorterLB to avoid the port conflict. For details, see the &lt;a href=&#34;https://rancher.com/docs/k3s/latest/en/networking/#traefik-ingress-controller&#34;&gt;official K3s document&lt;/a&gt;.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -A
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-helm.jpg&#34; alt=&#34;verify-porter-helm&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;delete-porterlb-using-helm&#34;&gt;Delete PorterLB Using Helm&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To delete PorterLB, run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm delete porter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;Before deleting PorterLB, you must first delete all Services that use PorterLB.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to check the result. If the PorterLB application does not exist, PorterLB has been deleted successfully.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm ls
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-helm.jpg&#34; alt=&#34;verify-porter-deletion-helm&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Configure Multiple PorterLB Replicas</title>
       <link>/docs/getting-started/configuration/configure-multiple-porter-replicas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1191,13 +1370,13 @@ protocol bgp neighbor1 {
       <description>
         
         
-        &lt;p&gt;This document describes how to configure multiple Porter replicas to ensure high availability in a production environment. You can skip this document if Porter is used in a test environment. By default, only one Porter replica is installed in a Kubernetes cluster.&lt;/p&gt;
+        &lt;p&gt;This document describes how to configure multiple PorterLB replicas to ensure high availability in a production environment. You can skip this document if PorterLB is used in a test environment. By default, only one PorterLB replica is installed in a Kubernetes cluster.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;If all Kubernetes cluster nodes are deployed under the same router (BGP mode or Layer 2 mode), you are advised to configure at least two Porter replicas, which are installed on two Kubernetes cluster nodes respectively.&lt;/li&gt;
-&lt;li&gt;If the Kubernetes cluster nodes are deployed under different leaf routers (BGP mode only), you are advised to configure at least two Porter replicas (one replica for one node) under each leaf router. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/&#34;&gt;Configure Porter for Multi-router Clusters&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If all Kubernetes cluster nodes are deployed under the same router (BGP mode or Layer 2 mode), you are advised to configure at least two PorterLB replicas, which are installed on two Kubernetes cluster nodes respectively.&lt;/li&gt;
+&lt;li&gt;If the Kubernetes cluster nodes are deployed under different leaf routers (BGP mode only), you are advised to configure at least two PorterLB replicas (one replica for one node) under each leaf router. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/&#34;&gt;Configure PorterLB for Multi-router Clusters&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;You need to prepare a Kubernetes cluster where Porter has been installed. For details, see &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubernetes/&#34;&gt;Install Porter on Kubernetes (kubectl and Helm)&lt;/a&gt; and &lt;a href=&#34;/docs/getting-started/installation/install-porter-on-kubesphere/&#34;&gt;Install Porter on KubeSphere (Web Console)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You need to &lt;a href=&#34;/docs/getting-started/installation/&#34;&gt;prepare a Kubernetes cluster where PorterLB has been installed&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;procedure&#34;&gt;Procedure&lt;/h2&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
@@ -1206,34 +1385,34 @@ protocol bgp neighbor1 {
 &lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Log in to the Kubernetes cluster and run the following command to label the Kubernetes cluster nodes where Porter is to be installed:&lt;/p&gt;
+&lt;p&gt;Log in to the Kubernetes cluster and run the following command to label the Kubernetes cluster nodes where PorterLB is to be installed:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl label --overwrite nodes master1 worker-p002 lb.kubesphere.io/v1alpha1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;porter
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
-  &lt;div&gt;In this example, Porter will be installed on master1 and worker-p002.&lt;/div&gt;
+  &lt;div&gt;In this example, PorterLB will be installed on master1 and worker-p002.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to scale the number of porter-manager pods to 0:&lt;/p&gt;
+&lt;p&gt;Run the following command to scale the number of porter-manager Pods to 0:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl scale deployment porter-manager --replicas&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to edit the porter-manager deployment:&lt;/p&gt;
+&lt;p&gt;Run the following command to edit the porter-manager Deployment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl edit deployment porter-manager -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;In the porter-manager deployment YAML configuration, add the following fields under &lt;code&gt;spec.template.spec&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;In the porter-manager Deployment YAML configuration, add the following fields under &lt;code&gt;spec.template.spec&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nodeSelector&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kubernetes.io/os&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;linux&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;lb.kubesphere.io/v1alpha1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;porter&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to scale the number of porter-manager pods to the required number (change the number &lt;code&gt;2&lt;/code&gt; to the actual value):&lt;/p&gt;
+&lt;p&gt;Run the following command to scale the number of porter-manager Pods to the required number (change the number &lt;code&gt;2&lt;/code&gt; to the actual value):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl scale deployment porter-manager --replicas&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run the following command to check whether Porter has been installed on the required nodes.&lt;/p&gt;
+&lt;p&gt;Run the following command to check whether PorterLB has been installed on the required nodes.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system -o wide
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-multiple-porter-replicas/verify-configuration-result.jpg&#34; alt=&#34;verify-configuration-result&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -1242,8 +1421,8 @@ protocol bgp neighbor1 {
   
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
-&lt;li&gt;In Layer 2 mode, Porter uses the leader election feature of Kubernetes to ensure that only one replica responds to ARP/NDP requests.&lt;/li&gt;
-&lt;li&gt;In BGP mode, all Porter replicas will respond to the BgpPeer configuration and attempt to establish a BGP connection with the peer BGP router by default. If the Kubernetes cluster nodes are deployed under different routers, you need to perform further configuration so that the Porter replicas establish BGP connections with the correct BGP routers. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/&#34;&gt;Configure Porter for Multi-router Clusters&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;In Layer 2 mode, PorterLB uses the leader election feature of Kubernetes to ensure that only one replica responds to ARP/NDP requests.&lt;/li&gt;
+&lt;li&gt;In BGP mode, all PorterLB replicas will respond to the BgpPeer configuration and attempt to establish a BGP connection with the peer BGP router by default. If the Kubernetes cluster nodes are deployed under different routers, you need to perform further configuration so that the PorterLB replicas establish BGP connections with the correct BGP routers. For details, see &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/&#34;&gt;Configure PorterLB for Multi-router Clusters&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
 &lt;/div&gt;
 

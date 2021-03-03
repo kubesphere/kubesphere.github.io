@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Porter – Who Uses Porter</title>
+    <title>PorterLB – Who Uses PorterLB</title>
     <link>/about/</link>
-    <description>Recent content in Who Uses Porter on Porter</description>
+    <description>Recent content in Who Uses PorterLB on PorterLB</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />

@@ -22,29 +22,32 @@
 
 <title>Layer 2 Mode | PorterLB</title><meta property="og:title" content="Layer 2 Mode" />
 <meta property="og:description" content="This document describes the network topology of PorterLB in Layer 2 mode and how PorterLB functions in Layer 2 mode.
-Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, BGP may be unavailable in certain systems because of security requirements or because the router does not support BGP. In this case, you can use PorterLB in Layer 2 mode to achieve similar functionality." />
+NOTE
+ Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, the BGP mode requires your router to support BGP and Equal-Cost Multi-Path (ECMP) routing, which may be unavailable in certain systems. In this case, you can use the Layer 2 mode to achieve similar functionality." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/concepts/layer-2-mode/" />
-<meta property="article:modified_time" content="2021-02-25T11:37:08+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-15T17:46:50+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Layer 2 Mode">
 <meta itemprop="description" content="This document describes the network topology of PorterLB in Layer 2 mode and how PorterLB functions in Layer 2 mode.
-Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, BGP may be unavailable in certain systems because of security requirements or because the router does not support BGP. In this case, you can use PorterLB in Layer 2 mode to achieve similar functionality.">
-<meta itemprop="dateModified" content="2021-02-25T11:37:08&#43;08:00" />
-<meta itemprop="wordCount" content="404">
+NOTE
+ Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, the BGP mode requires your router to support BGP and Equal-Cost Multi-Path (ECMP) routing, which may be unavailable in certain systems. In this case, you can use the Layer 2 mode to achieve similar functionality.">
+<meta itemprop="dateModified" content="2021-03-15T17:46:50&#43;08:00" />
+<meta itemprop="wordCount" content="453">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Layer 2 Mode"/>
 <meta name="twitter:description" content="This document describes the network topology of PorterLB in Layer 2 mode and how PorterLB functions in Layer 2 mode.
-Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, BGP may be unavailable in certain systems because of security requirements or because the router does not support BGP. In this case, you can use PorterLB in Layer 2 mode to achieve similar functionality."/>
+NOTE
+ Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, the BGP mode requires your router to support BGP and Equal-Cost Multi-Path (ECMP) routing, which may be unavailable in certain systems. In this case, you can use the Layer 2 mode to achieve similar functionality."/>
 
 
 
 
 
-<link rel="preload" href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" as="style">
-<link href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" as="style">
+<link href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -107,6 +110,19 @@ Generally, you are advised to use the BGP mode because it allows you to create a
 			</li>
 			
 			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/zh/docs/concepts/layer-2-mode/">简体中文</a>
+	
+</div>
+			</li>
 			
 		</ul>
 	</div>
@@ -589,7 +605,14 @@ Generally, you are advised to use the BGP mode because it allows you to create a
 	<h1>Layer 2 Mode</h1>
 	
 	<p>This document describes the network topology of PorterLB in Layer 2 mode and how PorterLB functions in Layer 2 mode.</p>
-<p>Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, BGP may be unavailable in certain systems because of security requirements or because the router does not support BGP. In this case, you can use PorterLB in Layer 2 mode to achieve similar functionality.</p>
+<div class="notices note">
+  
+  <p>NOTE</p>
+  <div><ul>
+<li>Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, the BGP mode requires your router to support BGP and Equal-Cost Multi-Path (ECMP) routing, which may be unavailable in certain systems. In this case, you can use the Layer 2 mode to achieve similar functionality.</li>
+<li>The Layer 2 mode requires your infrastructure environment to allow anonymous ARP/NDP packets. If PorterLB is installed in a cloud-based Kubernetes cluster for testing, you need to confirm with your cloud vendor whether anonymous ARP/NDP packets are allowed. If not, the Layer 2 mode cannot be used.</li>
+</ul></div>
+</div>
 <h2 id="network-topology">Network Topology</h2>
 <p>The following figure shows the topology of the network between a Kubernetes cluster with PorterLB and a router.</p>
 <p><img src="/images/docs/concepts/layer-2-mode/porter-layer-2-topology.jpg" alt="porter-layer-2-topology"></p>
@@ -673,7 +696,7 @@ Generally, you are advised to use the BGP mode because it allows you to create a
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 25, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/4ba156788ae90877f151ba24de957608cf94643f">Capitalized terms. (4ba1567)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 15, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/ecd6d60c8744fd50a2ba882b8104750ff8c67147">Modified the notice to cover NDP. (ecd6d60)</a>
 </div>
 </div>
 

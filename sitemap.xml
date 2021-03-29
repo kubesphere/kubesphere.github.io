@@ -1,165 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>/docs/concepts/bgp-mode/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/building-and-contributing/build-the-porter-project/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/configuration/configure-ip-address-pools-using-eip/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/installation/install-porter-on-kubernetes/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/installation/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/concepts/layer-2-mode/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/overview/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/usage/use-porter-in-bgp-mode/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/</loc>
-    <lastmod>2021-02-23T15:53:55+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/concepts/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/configuration/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/configuration/configure-porter-in-bgp-mode/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/building-and-contributing/contribute-to-the-porter-project/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/installation/install-porter-on-kubesphere/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/usage/use-porter-in-layer-2-mode/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/installation/install-porter-on-k3s/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/usage/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/building-and-contributing/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/configuration/configure-multiple-porter-replicas/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/faqs/</loc>
-    <lastmod>2021-02-23T14:39:42+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2021/02/25/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/</loc>
-    <lastmod>2021-02-26T11:36:01+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2019/06/24/an-open-source-load-balancer-for-bare-metal-kubernetes/</loc>
-    <lastmod>2021-02-25T17:13:25+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2019/06/24/the-interview-to-porterlb-from-the-new-stack/</loc>
-    <lastmod>2021-02-25T17:13:25+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/index.json</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2021-02-25T17:13:25+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/community/</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/search/</loc>
-    <lastmod>2020-04-13T23:36:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
-  </url>
-  
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+	<sitemap>
+	   	<loc>/en/sitemap.xml</loc>
+		
+	   	<lastmod>2021-03-17T14:50:55+08:00</lastmod>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>/zh/sitemap.xml</loc>
+		
+	   	<lastmod>2021-03-25T11:20:42+08:00</lastmod>
+		
+	</sitemap>
+	
+</sitemapindex>

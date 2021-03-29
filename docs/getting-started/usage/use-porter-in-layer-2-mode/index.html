@@ -25,12 +25,12 @@
 Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been installed. All Kubernetes cluster nodes must be on the same Layer 2 network (under the same router)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/usage/use-porter-in-layer-2-mode/" />
-<meta property="article:modified_time" content="2021-02-25T11:37:08+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-15T17:46:50+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Use PorterLB in Layer 2 Mode">
 <meta itemprop="description" content="This document demonstrates how to use PorterLB in Layer 2 mode to expose a Service backed by two Pods. The Eip, Deployment and Service described in this document are examples only and you need to customize the commands and YAML configurations based on your requirements.
 Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been installed. All Kubernetes cluster nodes must be on the same Layer 2 network (under the same router).">
-<meta itemprop="dateModified" content="2021-02-25T11:37:08&#43;08:00" />
-<meta itemprop="wordCount" content="871">
+<meta itemprop="dateModified" content="2021-03-15T17:46:50&#43;08:00" />
+<meta itemprop="wordCount" content="918">
 
 
 
@@ -43,8 +43,8 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
 
 
 
-<link rel="preload" href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" as="style">
-<link href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" as="style">
+<link href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -107,6 +107,19 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
 			</li>
 			
 			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/zh/docs/getting-started/usage/use-porter-in-layer-2-mode/">简体中文</a>
+	
+</div>
+			</li>
 			
 		</ul>
 	</div>
@@ -615,6 +628,7 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
 <ul>
 <li>You need to <a href="/docs/getting-started/installation/">prepare a Kubernetes cluster where PorterLB has been installed</a>. All Kubernetes cluster nodes must be on the same Layer 2 network (under the same router).</li>
 <li>You need to prepare a client machine, which is used to verify whether PorterLB functions properly in Layer 2 mode. The client machine needs to be on the same network as the Kubernetes cluster nodes.</li>
+<li>The Layer 2 mode requires your infrastructure environment to allow anonymous ARP/NDP packets. If PorterLB is installed in a cloud-based Kubernetes cluster for testing, you need to confirm with your cloud vendor whether anonymous ARP/NDP packets are allowed. If not, the Layer 2 mode cannot be used.</li>
 </ul>
 <p>This document uses the following devices as an example:</p>
 <table>
@@ -697,7 +711,7 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
   <p>NOTE</p>
   <div><ul>
 <li>
-<p>The IP addresses specified in <code>spec.address</code> must be on the same network segment as the Kubernetes cluster nodes.</p>
+<p>The IP addresses specified in <code>spec:address</code> must be on the same network segment as the Kubernetes cluster nodes.</p>
 </li>
 <li>
 <p>For details about the fields in the Eip YAML configuration, see <a href="/docs/getting-started/configuration/configure-ip-address-pools-using-eip/">Configure IP Address Pools Using Eip</a>.</p>
@@ -774,12 +788,12 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
   
   <p>NOTE</p>
   <div><ul>
-<li>You must set <code>spec.type</code> to <code>LoadBalancer</code>.</li>
+<li>You must set <code>spec:type</code> to <code>LoadBalancer</code>.</li>
 <li>The <code>lb.kubesphere.io/v1alpha1: porter</code> annotation specifies that the Service uses PorterLB.</li>
 <li>The <code>protocol.porter.kubesphere.io/v1alpha1: layer2</code> annotation specifies that PorterLB is used in Layer 2 mode.</li>
-<li>The <code>eip.porter.kubesphere.io/v1alpha2: porter-layer2-eip</code> annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the <code>spec.loadBalancerIP</code> field (for example, <code>spec.loadBalancerIP: 192.168.0.91</code>) to assign a specific IP address to the Service.</li>
-<li>If <code>spec.externalTrafficPolicy</code> is set to <code>Cluster</code> (default value), PorterLB randomly selects a node from all Kubernetes cluster nodes to handle Service requests. Pods on other nodes can also be reached over kube-proxy.</li>
-<li>If <code>spec.externalTrafficPolicy</code> is set to <code>Local</code>, PorterLB randomly selects a node that contains a Pod in the Kubernetes cluster to handle Service requests. Only Pods on the selected node can be reached.</li>
+<li>The <code>eip.porter.kubesphere.io/v1alpha2: porter-layer2-eip</code> annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the <code>spec:loadBalancerIP</code> field (for example, <code>spec:loadBalancerIP: 192.168.0.91</code>) to assign a specific IP address to the Service.</li>
+<li>If <code>spec:externalTrafficPolicy</code> is set to <code>Cluster</code> (default value), PorterLB randomly selects a node from all Kubernetes cluster nodes to handle Service requests. Pods on other nodes can also be reached over kube-proxy.</li>
+<li>If <code>spec:externalTrafficPolicy</code> is set to <code>Local</code>, PorterLB randomly selects a node that contains a Pod in the Kubernetes cluster to handle Service requests. Only Pods on the selected node can be reached.</li>
 </ul></div>
 </div>
 </li>
@@ -821,9 +835,9 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
 <li>
 <p>On the client machine, run the following command to access the Service:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl 192.168.0.91
-</code></pre></div><p>If <code>spec.externalTrafficPolicy</code> in the <a href="#step-5-create-a-service">Service YAML configuration</a> is set to <code>Cluster</code>, both Pods can be reached.</p>
+</code></pre></div><p>If <code>spec:externalTrafficPolicy</code> in the <a href="#step-5-create-a-service">Service YAML configuration</a> is set to <code>Cluster</code>, both Pods can be reached.</p>
 <p><img src="/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-cluster.jpg" alt="service-cluster"></p>
-<p>If <code>spec.externalTrafficPolicy</code> in the <a href="#step-5-create-a-service">Service YAML configuration</a> is set to <code>Local</code>, only the Pod on the node selected by PorterLB can be reached.</p>
+<p>If <code>spec:externalTrafficPolicy</code> in the <a href="#step-5-create-a-service">Service YAML configuration</a> is set to <code>Local</code>, only the Pod on the node selected by PorterLB can be reached.</p>
 <p><img src="/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-local.jpg" alt="service-local"></p>
 </li>
 </ol>
@@ -890,7 +904,7 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 25, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/4ba156788ae90877f151ba24de957608cf94643f">Capitalized terms. (4ba1567)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 15, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/ecd6d60c8744fd50a2ba882b8104750ff8c67147">Modified the notice to cover NDP. (ecd6d60)</a>
 </div>
 </div>
 

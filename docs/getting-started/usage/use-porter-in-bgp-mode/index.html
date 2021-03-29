@@ -25,11 +25,11 @@
 Instead of using a real router, this document uses a Linux server with BIRD to simulate a router so that users without a real router can also use PorterLB in BGP mode for tests." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/usage/use-porter-in-bgp-mode/" />
-<meta property="article:modified_time" content="2021-02-25T11:37:08+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-12T17:37:39+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Use PorterLB in BGP Mode">
 <meta itemprop="description" content="This document demonstrates how to use PorterLB in BGP mode to expose a Service backed by two Pods. The BgpConf, BgpPeer, Eip, Deployment and Service described in this document are examples only and you need to customize the commands and YAML configurations based on your requirements.
 Instead of using a real router, this document uses a Linux server with BIRD to simulate a router so that users without a real router can also use PorterLB in BGP mode for tests.">
-<meta itemprop="dateModified" content="2021-02-25T11:37:08&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-12T17:37:39&#43;08:00" />
 <meta itemprop="wordCount" content="1203">
 
 
@@ -43,8 +43,8 @@ Instead of using a real router, this document uses a Linux server with BIRD to s
 
 
 
-<link rel="preload" href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" as="style">
-<link href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" as="style">
+<link href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -107,6 +107,19 @@ Instead of using a real router, this document uses a Linux server with BIRD to s
 			</li>
 			
 			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/zh/docs/getting-started/usage/use-porter-in-bgp-mode/">简体中文</a>
+	
+</div>
+			</li>
 			
 		</ul>
 	</div>
@@ -880,13 +893,13 @@ protocol bgp neighbor1 {
   
   <p>NOTE</p>
   <div><ul>
-<li>You must set <code>spec.type</code> to <code>LoadBalancer</code>.</li>
+<li>You must set <code>spec:type</code> to <code>LoadBalancer</code>.</li>
 <li>The <code>lb.kubesphere.io/v1alpha1: porter</code> annotation specifies that the Service uses PorterLB.</li>
 <li>The <code>protocol.porter.kubesphere.io/v1alpha1: bgp</code> annotation specifies that PorterLB is used in BGP mode.</li>
-<li>The <code>eip.porter.kubesphere.io/v1alpha2: porter-bgp-eip</code> annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the <code>spec.loadBalancerIP</code> field (for example, <code>spec.loadBalancerIP: 172.22.0.2</code>) to assign a specific IP address to the Service.</li>
-<li>In the BGP mode, you can set <code>spec.loadBalancerIP</code> of multiple Services to the same value for IP address sharing (the Services are distinguished by different Service ports). In this case, you must set <code>spec.ports.port</code> to different values and <code>spec.externalTrafficPolicy</code> to <code>Cluster</code> for the Services.</li>
-<li>If <code>spec.externalTrafficPolicy</code> is set to <code>Cluster</code> (default value), PorterLB uses all Kubernetes cluster nodes as the next hops destined for the Service.</li>
-<li>If <code>spec.externalTrafficPolicy</code> is set to <code>Local</code>, PorterLB uses only Kubernetes cluster nodes that contain Pods as the next hops destined for the Service.</li>
+<li>The <code>eip.porter.kubesphere.io/v1alpha2: porter-bgp-eip</code> annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the <code>spec:loadBalancerIP</code> field (for example, <code>spec:loadBalancerIP: 172.22.0.2</code>) to assign a specific IP address to the Service.</li>
+<li>In the BGP mode, you can set <code>spec:loadBalancerIP</code> of multiple Services to the same value for IP address sharing (the Services are distinguished by different Service ports). In this case, you must set <code>spec:ports:port</code> to different values and <code>spec:externalTrafficPolicy</code> to <code>Cluster</code> for the Services.</li>
+<li>If <code>spec:externalTrafficPolicy</code> is set to <code>Cluster</code> (default value), PorterLB uses all Kubernetes cluster nodes as the next hops destined for the Service.</li>
+<li>If <code>spec:externalTrafficPolicy</code> is set to <code>Local</code>, PorterLB uses only Kubernetes cluster nodes that contain Pods as the next hops destined for the Service.</li>
 </ul></div>
 </div>
 </li>
@@ -910,9 +923,9 @@ protocol bgp neighbor1 {
 <li>
 <p>On the BIRD machine, run the following command to check the routing table. If equivalent routes using the Kubernetes cluster nodes as next hops destined for the Service are displayed, PorterLB functions properly.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip route
-</code></pre></div><p>If <code>spec.externalTrafficPolicy</code> in the <a href="#step-6-create-a-service">Service YAML configuration</a> is set to <code>Cluster</code>, all Kubernetes cluster nodes are used as the next hops.</p>
+</code></pre></div><p>If <code>spec:externalTrafficPolicy</code> in the <a href="#step-6-create-a-service">Service YAML configuration</a> is set to <code>Cluster</code>, all Kubernetes cluster nodes are used as the next hops.</p>
 <p><img src="/images/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-cluster.jpg" alt="bgp-routes-cluster"></p>
-<p>If <code>spec.externalTrafficPolicy</code> in the <a href="#step-6-create-a-service">Service YAML configuration</a> is set to <code>Local</code>, only Kubernetes cluster nodes that contain Pods are used as the next hops.</p>
+<p>If <code>spec:externalTrafficPolicy</code> in the <a href="#step-6-create-a-service">Service YAML configuration</a> is set to <code>Local</code>, only Kubernetes cluster nodes that contain Pods are used as the next hops.</p>
 <p><img src="/images/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-local.jpg" alt="bgp-routes-local"></p>
 </li>
 <li>
@@ -984,7 +997,7 @@ protocol bgp neighbor1 {
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 25, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/4ba156788ae90877f151ba24de957608cf94643f">Capitalized terms. (4ba1567)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 12, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/dc30f3aa56fa362f2a772457dd1da8b595f1a2c8">Added description in bpg-mode-en and changed the YAML item separator. (dc30f3a)</a>
 </div>
 </div>
 

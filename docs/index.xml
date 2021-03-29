@@ -23,6 +23,11 @@
         
         
         &lt;p&gt;This document describes the network topology of PorterLB in BGP mode and how PorterLB functions in BGP mode.&lt;/p&gt;
+&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;The BGP mode is recommended because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. To use the BGP mode, your router must support BGP and Equal-Cost Multi-Path (ECMP) routing. If your router does not support BGP or ECMP, you can use the Layer 2 mode to achieve similar functionality.&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;network-topology&#34;&gt;Network Topology&lt;/h2&gt;
 &lt;p&gt;The following figure shows the topology of the network between a Kubernetes cluster where PorterLB is installed and a peer BGP router.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/concepts/bgp-mode/porter-bgp-topology.jpg&#34; alt=&#34;porter-bgp-topology&#34;&gt;&lt;/p&gt;
@@ -327,7 +332,14 @@ helm install porter test/porter
         
         
         &lt;p&gt;This document describes the network topology of PorterLB in Layer 2 mode and how PorterLB functions in Layer 2 mode.&lt;/p&gt;
-&lt;p&gt;Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, BGP may be unavailable in certain systems because of security requirements or because the router does not support BGP. In this case, you can use PorterLB in Layer 2 mode to achieve similar functionality.&lt;/p&gt;
+&lt;div class=&#34;notices note&#34;&gt;
+  
+  &lt;p&gt;NOTE&lt;/p&gt;
+  &lt;div&gt;&lt;ul&gt;
+&lt;li&gt;Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, the BGP mode requires your router to support BGP and Equal-Cost Multi-Path (ECMP) routing, which may be unavailable in certain systems. In this case, you can use the Layer 2 mode to achieve similar functionality.&lt;/li&gt;
+&lt;li&gt;The Layer 2 mode requires your infrastructure environment to allow anonymous ARP/NDP packets. If PorterLB is installed in a cloud-based Kubernetes cluster for testing, you need to confirm with your cloud vendor whether anonymous ARP/NDP packets are allowed. If not, the Layer 2 mode cannot be used.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;network-topology&#34;&gt;Network Topology&lt;/h2&gt;
 &lt;p&gt;The following figure shows the topology of the network between a Kubernetes cluster with PorterLB and a router.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/concepts/layer-2-mode/porter-layer-2-topology.jpg&#34; alt=&#34;porter-layer-2-topology&#34;&gt;&lt;/p&gt;
@@ -630,13 +642,13 @@ protocol bgp neighbor1 {
   
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
-&lt;li&gt;You must set &lt;code&gt;spec.type&lt;/code&gt; to &lt;code&gt;LoadBalancer&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You must set &lt;code&gt;spec:type&lt;/code&gt; to &lt;code&gt;LoadBalancer&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;lb.kubesphere.io/v1alpha1: porter&lt;/code&gt; annotation specifies that the Service uses PorterLB.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;protocol.porter.kubesphere.io/v1alpha1: bgp&lt;/code&gt; annotation specifies that PorterLB is used in BGP mode.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;eip.porter.kubesphere.io/v1alpha2: porter-bgp-eip&lt;/code&gt; annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; field (for example, &lt;code&gt;spec.loadBalancerIP: 172.22.0.2&lt;/code&gt;) to assign a specific IP address to the Service.&lt;/li&gt;
-&lt;li&gt;In the BGP mode, you can set &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; of multiple Services to the same value for IP address sharing (the Services are distinguished by different Service ports). In this case, you must set &lt;code&gt;spec.ports.port&lt;/code&gt; to different values and &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; to &lt;code&gt;Cluster&lt;/code&gt; for the Services.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Cluster&lt;/code&gt; (default value), PorterLB uses all Kubernetes cluster nodes as the next hops destined for the Service.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Local&lt;/code&gt;, PorterLB uses only Kubernetes cluster nodes that contain Pods as the next hops destined for the Service.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;eip.porter.kubesphere.io/v1alpha2: porter-bgp-eip&lt;/code&gt; annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the &lt;code&gt;spec:loadBalancerIP&lt;/code&gt; field (for example, &lt;code&gt;spec:loadBalancerIP: 172.22.0.2&lt;/code&gt;) to assign a specific IP address to the Service.&lt;/li&gt;
+&lt;li&gt;In the BGP mode, you can set &lt;code&gt;spec:loadBalancerIP&lt;/code&gt; of multiple Services to the same value for IP address sharing (the Services are distinguished by different Service ports). In this case, you must set &lt;code&gt;spec:ports:port&lt;/code&gt; to different values and &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; to &lt;code&gt;Cluster&lt;/code&gt; for the Services.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Cluster&lt;/code&gt; (default value), PorterLB uses all Kubernetes cluster nodes as the next hops destined for the Service.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Local&lt;/code&gt;, PorterLB uses only Kubernetes cluster nodes that contain Pods as the next hops destined for the Service.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -660,9 +672,9 @@ protocol bgp neighbor1 {
 &lt;li&gt;
 &lt;p&gt;On the BIRD machine, run the following command to check the routing table. If equivalent routes using the Kubernetes cluster nodes as next hops destined for the Service are displayed, PorterLB functions properly.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip route
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, all Kubernetes cluster nodes are used as the next hops.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, all Kubernetes cluster nodes are used as the next hops.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-cluster.jpg&#34; alt=&#34;bgp-routes-cluster&#34;&gt;&lt;/p&gt;
-&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only Kubernetes cluster nodes that contain Pods are used as the next hops.&lt;/p&gt;
+&lt;p&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only Kubernetes cluster nodes that contain Pods are used as the next hops.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-local.jpg&#34; alt=&#34;bgp-routes-local&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -745,7 +757,7 @@ protocol bgp neighbor1 {
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;spec&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;as&lt;/code&gt;: Local ASN, which must be different from the value of &lt;code&gt;spec.conf.peerAS&lt;/code&gt; in the BgpPeer configuration.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;as&lt;/code&gt;: Local ASN, which must be different from the value of &lt;code&gt;spec:conf:peerAS&lt;/code&gt; in the BgpPeer configuration.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;listenPort&lt;/code&gt;: Port on which PorterLB listens. The default value is &lt;code&gt;179&lt;/code&gt; (default BGP port number). If other components (such as Calico) in the Kubernetes cluster also use BGP and port 179, you must set a different value to avoid the conflict.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;routerID&lt;/code&gt;: Local router ID, which is usually set to the IP address of the master NIC of the Kubernetes master node. If this field is not specified, the first IP address of the node where porter-manager is located will be used.&lt;/li&gt;
 &lt;/ul&gt;
@@ -776,20 +788,20 @@ protocol bgp neighbor1 {
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;name&lt;/code&gt;: Name of the BgpPeer object. If there are multiple peer BGP routers, you can create multiple BgpPeer objects with different names.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;spec.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;spec:conf&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;peerAS&lt;/code&gt;: ASN of the peer BGP router, which must be different from the value of &lt;code&gt;spec.as&lt;/code&gt; in the BgpConf configuration.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;peerAS&lt;/code&gt;: ASN of the peer BGP router, which must be different from the value of &lt;code&gt;spec:as&lt;/code&gt; in the BgpConf configuration.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;neighborAddress&lt;/code&gt;: IP address of the peer BGP router.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;spec.afiSafis.addPaths.config&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;spec:afiSafis:addPaths:config&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;sendMax&lt;/code&gt;: Maximum number of equivalent routes that PorterLB can send to the peer BGP router for Equal-Cost Multi-Path (ECMP) routing. The default value is &lt;code&gt;10&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;spec.nodeSelector.matchLabels&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;spec:nodeSelector:matchLabels&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;porter.kubesphere.io/rack&lt;/code&gt;: If the Kubernetes cluster nodes are deployed under different routers and each node has one PorterLB replica, you need to configure this field so that the PorterLB replica on the correct node establishes a BGP connection with the peer BGP router. By default, all porter-manager replicas will respond to the BgpPeer configuration and attempt to establish a BGP connection with the peer BGP router.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Other fields under &lt;code&gt;spec.afiSafis&lt;/code&gt; specify the address family. Currently, PorterLB supports only IPv4 and you can directly use the values in the example configuration.&lt;/p&gt;
+&lt;p&gt;Other fields under &lt;code&gt;spec:afiSafis&lt;/code&gt; specify the address family. Currently, PorterLB supports only IPv4 and you can directly use the values in the example configuration.&lt;/p&gt;
 
       </description>
     </item>
@@ -902,6 +914,7 @@ protocol bgp neighbor1 {
 &lt;ul&gt;
 &lt;li&gt;You need to &lt;a href=&#34;/docs/getting-started/installation/&#34;&gt;prepare a Kubernetes cluster where PorterLB has been installed&lt;/a&gt;. All Kubernetes cluster nodes must be on the same Layer 2 network (under the same router).&lt;/li&gt;
 &lt;li&gt;You need to prepare a client machine, which is used to verify whether PorterLB functions properly in Layer 2 mode. The client machine needs to be on the same network as the Kubernetes cluster nodes.&lt;/li&gt;
+&lt;li&gt;The Layer 2 mode requires your infrastructure environment to allow anonymous ARP/NDP packets. If PorterLB is installed in a cloud-based Kubernetes cluster for testing, you need to confirm with your cloud vendor whether anonymous ARP/NDP packets are allowed. If not, the Layer 2 mode cannot be used.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This document uses the following devices as an example:&lt;/p&gt;
 &lt;table&gt;
@@ -984,7 +997,7 @@ protocol bgp neighbor1 {
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;The IP addresses specified in &lt;code&gt;spec.address&lt;/code&gt; must be on the same network segment as the Kubernetes cluster nodes.&lt;/p&gt;
+&lt;p&gt;The IP addresses specified in &lt;code&gt;spec:address&lt;/code&gt; must be on the same network segment as the Kubernetes cluster nodes.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;For details about the fields in the Eip YAML configuration, see &lt;a href=&#34;/docs/getting-started/configuration/configure-ip-address-pools-using-eip/&#34;&gt;Configure IP Address Pools Using Eip&lt;/a&gt;.&lt;/p&gt;
@@ -1061,12 +1074,12 @@ protocol bgp neighbor1 {
   
   &lt;p&gt;NOTE&lt;/p&gt;
   &lt;div&gt;&lt;ul&gt;
-&lt;li&gt;You must set &lt;code&gt;spec.type&lt;/code&gt; to &lt;code&gt;LoadBalancer&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You must set &lt;code&gt;spec:type&lt;/code&gt; to &lt;code&gt;LoadBalancer&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;lb.kubesphere.io/v1alpha1: porter&lt;/code&gt; annotation specifies that the Service uses PorterLB.&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;protocol.porter.kubesphere.io/v1alpha1: layer2&lt;/code&gt; annotation specifies that PorterLB is used in Layer 2 mode.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;eip.porter.kubesphere.io/v1alpha2: porter-layer2-eip&lt;/code&gt; annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the &lt;code&gt;spec.loadBalancerIP&lt;/code&gt; field (for example, &lt;code&gt;spec.loadBalancerIP: 192.168.0.91&lt;/code&gt;) to assign a specific IP address to the Service.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Cluster&lt;/code&gt; (default value), PorterLB randomly selects a node from all Kubernetes cluster nodes to handle Service requests. Pods on other nodes can also be reached over kube-proxy.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Local&lt;/code&gt;, PorterLB randomly selects a node that contains a Pod in the Kubernetes cluster to handle Service requests. Only Pods on the selected node can be reached.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;eip.porter.kubesphere.io/v1alpha2: porter-layer2-eip&lt;/code&gt; annotation specifies the Eip object used by PorterLB. If this annotation is not configured, PorterLB automatically uses the first available Eip object that matches the protocol. You can also delete this annotation and add the &lt;code&gt;spec:loadBalancerIP&lt;/code&gt; field (for example, &lt;code&gt;spec:loadBalancerIP: 192.168.0.91&lt;/code&gt;) to assign a specific IP address to the Service.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Cluster&lt;/code&gt; (default value), PorterLB randomly selects a node from all Kubernetes cluster nodes to handle Service requests. Pods on other nodes can also be reached over kube-proxy.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; is set to &lt;code&gt;Local&lt;/code&gt;, PorterLB randomly selects a node that contains a Pod in the Kubernetes cluster to handle Service requests. Only Pods on the selected node can be reached.&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -1108,9 +1121,9 @@ protocol bgp neighbor1 {
 &lt;li&gt;
 &lt;p&gt;On the client machine, run the following command to access the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl 192.168.0.91
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, both Pods can be reached.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, both Pods can be reached.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-cluster.jpg&#34; alt=&#34;service-cluster&#34;&gt;&lt;/p&gt;
-&lt;p&gt;If &lt;code&gt;spec.externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only the Pod on the node selected by PorterLB can be reached.&lt;/p&gt;
+&lt;p&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only the Pod on the node selected by PorterLB can be reached.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-local.jpg&#34; alt=&#34;service-local&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -1145,7 +1158,7 @@ protocol bgp neighbor1 {
 &lt;li&gt;When an external client machine attempts to access the Service, the spine router forwards the Service traffic to leaf 1, and leaf 1 load balances the traffic among the master node and worker 1.&lt;/li&gt;
 &lt;li&gt;Although Pod 2 on worker 2 can also be reached over kube-proxy, router-level load balancing is implemented only among the master node and worker 1 and the Service bandwidth is limited to the bandwidth of the master node and worker 1.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;To resolve the problem, you need to label the Kubernetes cluster nodes and change the PorterLB Deployment configuration so that PorterLB is installed on nodes under all leaf routers. In addition, you need to specify the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec.nodeSelector.matchLabels&lt;/a&gt; field in the BgpPeer configuration so that the PorterLB replicas establish BGP connections with the correct BGP routers.&lt;/p&gt;
+&lt;p&gt;To resolve the problem, you need to label the Kubernetes cluster nodes and change the PorterLB Deployment configuration so that PorterLB is installed on nodes under all leaf routers. In addition, you need to specify the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec:nodeSelector:matchLabels&lt;/a&gt; field in the BgpPeer configuration so that the PorterLB replicas establish BGP connections with the correct BGP routers.&lt;/p&gt;
 &lt;h2 id=&#34;network-topology-after-configuration&#34;&gt;Network Topology After Configuration&lt;/h2&gt;
 &lt;p&gt;This section describes the configuration result you need to achieve. The following figure shows the network topology of a Kubernetes cluster after the configuration.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/multi-router-topology-2.jpg&#34; alt=&#34;multi-router-topology-2&#34;&gt;&lt;/p&gt;
@@ -1184,7 +1197,7 @@ protocol bgp neighbor1 {
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl edit deployment porter-manager -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;In the porter-manager Deployment YAML configuration, add the following fields under &lt;code&gt;spec.template.spec&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;In the porter-manager Deployment YAML configuration, add the following fields under &lt;code&gt;spec:template:spec&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nodeSelector&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kubernetes.io/os&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;linux&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;lb.kubesphere.io/v1alpha1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;porter&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -1204,7 +1217,7 @@ protocol bgp neighbor1 {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl label --overwrite nodes worker-p002 porter.kubesphere.io/rack&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;leaf2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;When creating BgpPeer objects, configure the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec.nodeSelector.matchLabels&lt;/a&gt; field in the BgpPeer YAML configuration for each leaf router. The following YAML configurations specify that the PorterLB replica on master1 communicates with leaf1, and the PorterLB replica on worker-p002 communicates with leaf2.&lt;/p&gt;
+&lt;p&gt;When creating BgpPeer objects, configure the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec:nodeSelector:matchLabels&lt;/a&gt; field in the BgpPeer YAML configuration for each leaf router. The following YAML configurations specify that the PorterLB replica on master1 communicates with leaf1, and the PorterLB replica on worker-p002 communicates with leaf2.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# BgpPeer YAML for master1 and leaf1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nodeSelector&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;matchLabels&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -1402,7 +1415,7 @@ helm install porter test/porter
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl edit deployment porter-manager -n porter-system
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;In the porter-manager Deployment YAML configuration, add the following fields under &lt;code&gt;spec.template.spec&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;In the porter-manager Deployment YAML configuration, add the following fields under &lt;code&gt;spec:template:spec&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nodeSelector&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kubernetes.io/os&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;linux&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;lb.kubesphere.io/v1alpha1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;porter&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;

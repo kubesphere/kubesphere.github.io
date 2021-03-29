@@ -26,12 +26,12 @@ NOTE
 This document applies only to the BGP mode. The Layer 2 mode requires that all Kubernetes cluster nodes be on the same Layer 2 network (under the same router).  Network Topology Before Configuration This section explains why you need to perform the configuration." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/" />
-<meta property="article:modified_time" content="2021-02-25T11:37:08+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-12T17:37:39+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Configure PorterLB for Multi-router Clusters (BGP Mode)">
 <meta itemprop="description" content="This document describes how to configure PorterLB in BGP mode for Kubernetes cluster nodes deployed under multiple routers. You can skip this document if all Kubernetes cluster nodes are deployed under the same router.
 NOTE
 This document applies only to the BGP mode. The Layer 2 mode requires that all Kubernetes cluster nodes be on the same Layer 2 network (under the same router).  Network Topology Before Configuration This section explains why you need to perform the configuration.">
-<meta itemprop="dateModified" content="2021-02-25T11:37:08&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-12T17:37:39&#43;08:00" />
 <meta itemprop="wordCount" content="905">
 
 
@@ -46,8 +46,8 @@ This document applies only to the BGP mode. The Layer 2 mode requires that all K
 
 
 
-<link rel="preload" href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" as="style">
-<link href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" as="style">
+<link href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -110,6 +110,19 @@ This document applies only to the BGP mode. The Layer 2 mode requires that all K
 			</li>
 			
 			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/zh/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/">简体中文</a>
+	
+</div>
+			</li>
 			
 		</ul>
 	</div>
@@ -632,7 +645,7 @@ This document applies only to the BGP mode. The Layer 2 mode requires that all K
 <li>When an external client machine attempts to access the Service, the spine router forwards the Service traffic to leaf 1, and leaf 1 load balances the traffic among the master node and worker 1.</li>
 <li>Although Pod 2 on worker 2 can also be reached over kube-proxy, router-level load balancing is implemented only among the master node and worker 1 and the Service bandwidth is limited to the bandwidth of the master node and worker 1.</li>
 </ul>
-<p>To resolve the problem, you need to label the Kubernetes cluster nodes and change the PorterLB Deployment configuration so that PorterLB is installed on nodes under all leaf routers. In addition, you need to specify the <a href="/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer">spec.nodeSelector.matchLabels</a> field in the BgpPeer configuration so that the PorterLB replicas establish BGP connections with the correct BGP routers.</p>
+<p>To resolve the problem, you need to label the Kubernetes cluster nodes and change the PorterLB Deployment configuration so that PorterLB is installed on nodes under all leaf routers. In addition, you need to specify the <a href="/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer">spec:nodeSelector:matchLabels</a> field in the BgpPeer configuration so that the PorterLB replicas establish BGP connections with the correct BGP routers.</p>
 <h2 id="network-topology-after-configuration">Network Topology After Configuration</h2>
 <p>This section describes the configuration result you need to achieve. The following figure shows the network topology of a Kubernetes cluster after the configuration.</p>
 <p><img src="/images/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/multi-router-topology-2.jpg" alt="multi-router-topology-2"></p>
@@ -671,7 +684,7 @@ This document applies only to the BGP mode. The Layer 2 mode requires that all K
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl edit deployment porter-manager -n porter-system
 </code></pre></div></li>
 <li>
-<p>In the porter-manager Deployment YAML configuration, add the following fields under <code>spec.template.spec</code>:</p>
+<p>In the porter-manager Deployment YAML configuration, add the following fields under <code>spec:template:spec</code>:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">nodeSelector</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">kubernetes.io/os</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>linux<span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">lb.kubesphere.io/v1alpha1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>porter<span style="color:#f8f8f8;text-decoration:underline">
@@ -691,7 +704,7 @@ This document applies only to the BGP mode. The Layer 2 mode requires that all K
 </code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl label --overwrite nodes worker-p002 porter.kubesphere.io/rack<span style="color:#ce5c00;font-weight:bold">=</span>leaf2
 </code></pre></div></li>
 <li>
-<p>When creating BgpPeer objects, configure the <a href="/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer">spec.nodeSelector.matchLabels</a> field in the BgpPeer YAML configuration for each leaf router. The following YAML configurations specify that the PorterLB replica on master1 communicates with leaf1, and the PorterLB replica on worker-p002 communicates with leaf2.</p>
+<p>When creating BgpPeer objects, configure the <a href="/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer">spec:nodeSelector:matchLabels</a> field in the BgpPeer YAML configuration for each leaf router. The following YAML configurations specify that the PorterLB replica on master1 communicates with leaf1, and the PorterLB replica on worker-p002 communicates with leaf2.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># BgpPeer YAML for master1 and leaf1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">nodeSelector</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">matchLabels</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -765,7 +778,7 @@ This document applies only to the BGP mode. The Layer 2 mode requires that all K
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 25, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/4ba156788ae90877f151ba24de957608cf94643f">Capitalized terms. (4ba1567)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 12, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/dc30f3aa56fa362f2a772457dd1da8b595f1a2c8">Added description in bpg-mode-en and changed the YAML item separator. (dc30f3a)</a>
 </div>
 </div>
 

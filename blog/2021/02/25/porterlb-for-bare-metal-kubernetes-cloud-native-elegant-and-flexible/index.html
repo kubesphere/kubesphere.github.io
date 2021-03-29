@@ -25,11 +25,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/2021/02/25/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/" />
 <meta property="article:published_time" content="2021-02-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-02-26T11:36:01+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-17T14:50:55+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="PorterLB for Bare-Metal Kubernetes: Cloud Native, Elegant, and Flexible">
 <meta itemprop="description" content="Use PorterLB to expose applications in bare-metal Kubernetes clusters.">
 <meta itemprop="datePublished" content="2021-02-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-02-26T11:36:01&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-17T14:50:55&#43;08:00" />
 <meta itemprop="wordCount" content="706">
 
 
@@ -42,8 +42,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" as="style">
-<link href="/scss/main.min.a816828353c6eafb89fdd85eeda8bdce1722246c236b134c9745fe73162caddf.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" as="style">
+<link href="/scss/main.min.6e12e342de7edacb48cb67feba330711091ae03cbcc23caa2b96dcea9a8f4615.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -107,6 +107,19 @@
 			
 			
 			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/zh/">简体中文</a>
+	
+</div>
+			</li>
+			
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
@@ -162,6 +175,15 @@
           
           
           
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20210312kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes"   href="/blog/2021/03/12/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/">
+            KubeSphere&#43;PorterLB: Implement Grayscale Release on Bare-Metal Kubernetes
+          </a>
+        
+      
+        
+          
+          
+          
           <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20210225porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible"   href="/blog/2021/02/25/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/">
             PorterLB for Bare-Metal Kubernetes: Cloud Native, Elegant, and Flexible
           </a>
@@ -207,7 +229,7 @@
 
 
 
-<a href="https://github.com/kubesphere/kubesphere.github.io/edit/master/content/en/blog/porterlb-boosts-kubernetes-on-bare-metal.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/kubesphere/kubesphere.github.io/edit/master/content/en/blog/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
 <a href="https://github.com/kubesphere/kubesphere.github.io/issues/new?title=PorterLB%20for%20Bare-Metal%20Kubernetes:%20Cloud%20Native,%20Elegant,%20and%20Flexible" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
@@ -254,7 +276,7 @@
 <p>In this article, I am going to introduce how PorterLB functions in Layer 2 mode and BGP mode, which are provided for users to expose applications in different scenarios, and the advantages of PorterLB compared with other bare-metal load balancer implementations such as MetalLB.</p>
 <h2 id="bgp-mode">BGP Mode</h2>
 <p>In BGP mode, PorterLB publishes routes to a BGP router deployed outside the Kubernetes cluster, and the BGP router forwards Service traffic from external clients to the Kubernetes cluster nodes based on the routes obtained from PorterLB. In this process, PorterLB uses Equal-Cost Multi-Path (ECMP) routing to ensure that all Kubernetes nodes or nodes that contain Pods, depending on the user configuration, are used as next hops by the BGP router.</p>
-<p><img src="/images/blog/porterlb-boosts-kubernetes-on-bare-metal/porter-bgp-topology.jpg" alt="porter-bgp-topology"></p>
+<p><img src="/images/blog/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/porter-bgp-topology.jpg" alt="porter-bgp-topology"></p>
 <p>The process of using PorterLB in BGP mode in a Kubernetes cluster is simple:</p>
 <ol>
 <li>Install PorterLB.</li>
@@ -263,11 +285,11 @@
 <li>Create a Service and set the Service to use PorterLB, which is similar to what you do to use a load balancer plugin in a cloud-based Kubernetes cluster.</li>
 </ol>
 <p>PorterLB can be configured by using the Eip, BgpConf, and BgpPeer CRDs, no other configuration files are required. In addition, as BGP is decentralized, you can use the BGP mode to easily establish a high availability network free of failover interruptions and bandwidth bottlenecks.</p>
-<p><img src="/images/blog/porterlb-boosts-kubernetes-on-bare-metal/high-availability-network.jpg" alt="high-availability-network"></p>
+<p><img src="/images/blog/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/high-availability-network.jpg" alt="high-availability-network"></p>
 <h2 id="layer-2-mode">Layer 2 Mode</h2>
 <p>Generally, you are advised to use the BGP mode to expose your Services in a high availability network. However, BGP may be unavailable in certain systems because of security requirements or because the router does not support BGP. In this case, you can use PorterLB in Layer 2 mode to achieve similar functionality.</p>
 <p>In Layer 2 mode, PorterLB uses ARP packets (for IPv4) or NDP packets (for IPv6) to map the Service IP address to the MAC address of a Kubernetes node. The mechanism of the Layer 2 mode is similar to that of the BGP mode, except that BGP is replaced with ARP/NDP and the router obtains only one route destined for the Service.</p>
-<p><img src="/images/blog/porterlb-boosts-kubernetes-on-bare-metal/porter-layer-2-topology.jpg" alt="porter-layer-2-topology"></p>
+<p><img src="/images/blog/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/porter-layer-2-topology.jpg" alt="porter-layer-2-topology"></p>
 <p>Though the Layer 2 mode does not provide the same high availability as the BGP mode does, it is easier to use (you don&rsquo;t even need to configure BGP properties):</p>
 <ol>
 <li>Install PorterLB.</li>
@@ -280,7 +302,7 @@
 <h3 id="cloud-native">Cloud native</h3>
 <p>To manage IP address pools and BGP properties for PorterLB, you only need to use the <code>kubectl apply</code> command provided by Kubernetes to create CRD objects. To obtain the status information about IP address pools and BGP peers, you can simply run <code>kubectl get</code> to view the status of the CRD objects. No other configuration files are required. In addition, a PorterLB GUI will be available soon, which will further simplify the usage of PorterLB.</p>
 <h3 id="elegant">Elegant</h3>
-<p>After PorterLB is installed in a Kubernetes cluster, a porter-manager Deployment that contains a porter-manager Pod is created. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster. For high availability, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager pods) to multiple cluster nodes. This simple architecture ensures that PorterLB can be easily managed and integrated with other systems.</p>
+<p>After PorterLB is installed in a Kubernetes cluster, a porter-manager Deployment that contains a porter-manager Pod is created. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster. For high availability, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager Pods) to multiple cluster nodes. This simple architecture ensures that PorterLB can be easily managed and integrated with other systems.</p>
 <h3 id="flexible">Flexible</h3>
 <p>PorterLB can be used in conventional Kubernetes clusters. As a sub-project of KubeSphere, PorterLB also fits well into the KubeSphere ecosystem. You can seamlessly integrate PorterLB as a plugin with KubeSphere to utilize the abundant features of the KubeSphere ecosystem, such as observability and troubleshooting, unified monitoring and logging, centralized storage and networking management, and easy-to-use CI/CD pipelines.</p>
 
@@ -290,7 +312,7 @@
   <li>
     <a href="/blog/2019/06/24/an-open-source-load-balancer-for-bare-metal-kubernetes/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
   </li>
-    <a  class="btn btn-primary  disabled">Next <span class="ml-1">→</span></a>
+    <a href="/blog/2021/03/12/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
   </li>
 </ul>
 

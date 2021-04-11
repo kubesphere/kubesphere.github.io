@@ -213,7 +213,7 @@
 &lt;/div&gt;
 &lt;h2 id=&#34;network-topology-before-configuration&#34;&gt;Network Topology Before Configuration&lt;/h2&gt;
 &lt;p&gt;This section explains why you need to perform the configuration. The following figure shows the network topology of a Kubernetes cluster before the configuration.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/multi-router-topology-1.jpg&#34; alt=&#34;multi-router-topology-1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/multi-router-topology-1.jpg&#34; alt=&#34;multi-router-topology-1&#34;&gt;&lt;/p&gt;
 &lt;p&gt;IP addresses in the preceding figure are examples only. The topology is described as follows:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;In the Kubernetes cluster, the master and worker 1 nodes are deployed under the leaf 1 BGP router, and the worker 2 node is deployed under the leaf 2 BGP router. PorterLB is only installed under leaf 1 (by default, only one PorterLB replica is installed).&lt;/li&gt;
@@ -226,7 +226,7 @@
 &lt;p&gt;To resolve the problem, you need to label the Kubernetes cluster nodes and change the PorterLB Deployment configuration so that PorterLB is installed on nodes under all leaf routers. In addition, you need to specify the &lt;a href=&#34;/docs/getting-started/configuration/configure-porter-in-bgp-mode/#configure-peer-bgp-properties-using-bgppeer&#34;&gt;spec:nodeSelector:matchLabels&lt;/a&gt; field in the BgpPeer configuration so that the PorterLB replicas establish BGP connections with the correct BGP routers.&lt;/p&gt;
 &lt;h2 id=&#34;network-topology-after-configuration&#34;&gt;Network Topology After Configuration&lt;/h2&gt;
 &lt;p&gt;This section describes the configuration result you need to achieve. The following figure shows the network topology of a Kubernetes cluster after the configuration.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/multi-router-topology-2.jpg&#34; alt=&#34;multi-router-topology-2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/multi-router-topology-2.jpg&#34; alt=&#34;multi-router-topology-2&#34;&gt;&lt;/p&gt;
 &lt;p&gt;IP addresses in the preceding figure are examples only. The topology is described as follows:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;After the configuration, PorterLB is installed on nodes under all leaf routers.&lt;/li&gt;
@@ -274,7 +274,7 @@
 &lt;li&gt;
 &lt;p&gt;Run the following command to check whether PorterLB has been installed on the required nodes.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system -o wide
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/verify-configuration-result.jpg&#34; alt=&#34;verify-configuration-result&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/verify-configuration-result.jpg&#34; alt=&#34;verify-configuration-result&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Run the following commands to label the Kubernetes cluster nodes so that the PorterLB replicas establish BGP connections with the correct BGP routers.&lt;/p&gt;
@@ -350,7 +350,7 @@
 &lt;li&gt;
 &lt;p&gt;Run the following command to check whether PorterLB has been installed on the required nodes.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system -o wide
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/configuration/configure-multiple-porter-replicas/verify-configuration-result.jpg&#34; alt=&#34;verify-configuration-result&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/configuration/configure-multiple-porter-replicas/verify-configuration-result.jpg&#34; alt=&#34;verify-configuration-result&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;notices note&#34;&gt;

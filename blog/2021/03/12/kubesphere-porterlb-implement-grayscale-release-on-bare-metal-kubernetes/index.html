@@ -25,11 +25,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/2021/03/12/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/" />
 <meta property="article:published_time" content="2021-03-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-03-17T14:29:09+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-31T10:32:06+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="KubeSphere&#43;PorterLB: Implement Grayscale Release on Bare-Metal Kubernetes">
 <meta itemprop="description" content="Use KubeSphere and PorterLB to implement grayscale release on bare-metal Kubernetes.">
 <meta itemprop="datePublished" content="2021-03-12T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-17T14:29:09&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-31T10:32:06&#43;08:00" />
 <meta itemprop="wordCount" content="850">
 
 
@@ -175,6 +175,15 @@
           
           
           
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20210330porterlb-high-availability-mechanisms-in-layer-2-mode"   href="/blog/2021/03/30/porterlb-high-availability-mechanisms-in-layer-2-mode/">
+            PorterLB: High Availability Mechanisms in Layer 2 Mode
+          </a>
+        
+      
+        
+          
+          
+          
           <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20210312kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes"   href="/blog/2021/03/12/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/">
             KubeSphere&#43;PorterLB: Implement Grayscale Release on Bare-Metal Kubernetes
           </a>
@@ -273,7 +282,7 @@
 <p>During new feature release, the KubeSphere grayscale release feature allows users to freely distribute traffic among a stable version and a beta version of an application to both ensure service continuity and test the beta version before formally rolling it out.</p>
 <p>In this article, I am going to introduce how to use KubeSphere and PorterLB to implement grayscale release for an application in a bare-metal Kubernetes cluster. To make you quickly understand how it works, I am going to directly use demonstration settings without digging too much into the details. You can obtain detailed guidance from the <a href="https://kubesphere.io/docs/">KubeSphere documentation</a> and <a href="https://porterlb.io/docs/">PorterLB documentation</a>.</p>
 <h2 id="architecture">Architecture</h2>
-<p><img src="/images/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/architecture.png" alt="architecture"></p>
+<p><img src="/images/en/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/architecture.png" alt="architecture"></p>
 <ul>
 <li>
 <p>Grayscale release</p>
@@ -310,7 +319,7 @@
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">eip.porter.kubesphere.io/v1alpha2</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>porter-layer2-eip<span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Name of the Eip object.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div></li>
 <li>
-<p>Move the cursor to <img src="/images/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/kubectl.png" width="25px"> in the lower-right corner and click <strong>Kubectl</strong> to open the CLI.</p>
+<p>Move the cursor to <img src="/images/en/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/kubectl.png" width="25px"> in the lower-right corner and click <strong>Kubectl</strong> to open the CLI.</p>
 </li>
 <li>
 <p>Run the <code>vi porter-layer2-eip.yaml</code> command to create a YAML file for an Eip object and add the following information to the YAML file:</p>
@@ -361,7 +370,7 @@
 <li>
 <p>On the client machine, run the <code>curl demo.com/path</code> command for multiple times to access the application Service.</p>
 <p>If grayscale release functions properly, only v2 can be accessed.</p>
-<img src="/images/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/v2.png" width="600px">
+<img src="/images/en/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/v2.png" width="600px">
 </li>
 <li>
 <p>On KubeSphere, repeat step 2 so that 100% traffic is sent to v1.</p>
@@ -369,11 +378,11 @@
 <li>
 <p>On the client machine, run the <code>curl demo.com/path</code> command for multiple times to access the application Service.</p>
 <p>If grayscale release functions properly, only v1 can be accessed.</p>
-<img src="/images/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/v1.png" width="600px">
+<img src="/images/en/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/v1.png" width="600px">
 </li>
 <li>
-<p>After v2 is fully tested, you can set v2 to take over all traffic and take the canary release job offline to form1ally release v2.</p>
-<img src="/images/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/job-offline.png">
+<p>After v2 is fully tested, you can set v2 to take over all traffic and take the canary release job offline to formally release v2.</p>
+<img src="/images/en/blog/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/job-offline.png">
 </li>
 </ol>
 
@@ -383,7 +392,7 @@
   <li>
     <a href="/blog/2021/02/25/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
   </li>
-    <a  class="btn btn-primary  disabled">Next <span class="ml-1">→</span></a>
+    <a href="/blog/2021/03/30/porterlb-high-availability-mechanisms-in-layer-2-mode/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
   </li>
 </ul>
 

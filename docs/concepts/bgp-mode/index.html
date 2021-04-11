@@ -26,12 +26,12 @@ NOTE
 The BGP mode is recommended because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. To use the BGP mode, your router must support BGP and Equal-Cost Multi-Path (ECMP) routing. If your router does not support BGP or ECMP, you can use the Layer 2 mode to achieve similar functionality." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/concepts/bgp-mode/" />
-<meta property="article:modified_time" content="2021-03-12T18:00:49+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-31T10:27:04+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="BGP Mode">
 <meta itemprop="description" content="This document describes the network topology of PorterLB in BGP mode and how PorterLB functions in BGP mode.
 NOTE
 The BGP mode is recommended because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. To use the BGP mode, your router must support BGP and Equal-Cost Multi-Path (ECMP) routing. If your router does not support BGP or ECMP, you can use the Layer 2 mode to achieve similar functionality.">
-<meta itemprop="dateModified" content="2021-03-12T18:00:49&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-31T10:27:04&#43;08:00" />
 <meta itemprop="wordCount" content="295">
 
 
@@ -612,7 +612,7 @@ The BGP mode is recommended because it allows you to create a high availability 
 </div>
 <h2 id="network-topology">Network Topology</h2>
 <p>The following figure shows the topology of the network between a Kubernetes cluster where PorterLB is installed and a peer BGP router.</p>
-<p><img src="/images/docs/concepts/bgp-mode/porter-bgp-topology.jpg" alt="porter-bgp-topology"></p>
+<p><img src="/images/en/docs/concepts/bgp-mode/porter-bgp-topology.jpg" alt="porter-bgp-topology"></p>
 <p>IP addresses and Autonomous System Numbers (ASNs) in the preceding figure are examples only. The topology is described as follows:</p>
 <ul>
 <li>A Service backed by two Pods is deployed in the Kubernetes cluster, and is assigned an IP address 172.22.0.2 for external access.</li>
@@ -683,7 +683,7 @@ The BGP mode is recommended because it allows you to create a high availability 
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified March 12, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/e6cc659b797737bec150573deedd9d40e3fc8485">Changed the description styling. (e6cc659)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 31, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/6b5fcb1b7e55642ccc25c7c0a5e16f6f54b9c622">Relocated files to adapt to localization and changed links. (6b5fcb1)</a>
 </div>
 </div>
 

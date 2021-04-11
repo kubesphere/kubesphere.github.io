@@ -30,7 +30,7 @@
 &lt;/div&gt;
 &lt;h2 id=&#34;network-topology&#34;&gt;Network Topology&lt;/h2&gt;
 &lt;p&gt;The following figure shows the topology of the network between a Kubernetes cluster where PorterLB is installed and a peer BGP router.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/concepts/bgp-mode/porter-bgp-topology.jpg&#34; alt=&#34;porter-bgp-topology&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/en/endocs/concepts/bgp-mode/porter-bgp-topology.jpg&#34; alt=&#34;porter-bgp-topology&#34;&gt;&lt;/p&gt;
 &lt;p&gt;IP addresses and Autonomous System Numbers (ASNs) in the preceding figure are examples only. The topology is described as follows:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A Service backed by two Pods is deployed in the Kubernetes cluster, and is assigned an IP address 172.22.0.2 for external access.&lt;/li&gt;
@@ -59,7 +59,7 @@
 &lt;/div&gt;
 &lt;h2 id=&#34;network-topology&#34;&gt;Network Topology&lt;/h2&gt;
 &lt;p&gt;The following figure shows the topology of the network between a Kubernetes cluster with PorterLB and a router.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/concepts/layer-2-mode/porter-layer-2-topology.jpg&#34; alt=&#34;porter-layer-2-topology&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/en/endocs/concepts/layer-2-mode/porter-layer-2-topology.jpg&#34; alt=&#34;porter-layer-2-topology&#34;&gt;&lt;/p&gt;
 &lt;p&gt;IP addresses and MAC addresses in the preceding figure are examples only. The topology is described as follows:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A Service backed by two Pods is deployed in the Kubernetes cluster, and is assigned an IP address 192.168.0.91 for external access. The Service IP address is on the same network segment as the cluster node IP addresses.&lt;/li&gt;

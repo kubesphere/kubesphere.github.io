@@ -24,7 +24,7 @@
         
         &lt;h2 id=&#34;symptom&#34;&gt;Symptom&lt;/h2&gt;
 &lt;p&gt;During the installation of PorterLB, the porter-manager Pod is stuck in pending state.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/porter-manager-pending.jpg&#34; alt=&#34;porter-manager-pending&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/porter-manager-pending.jpg&#34; alt=&#34;porter-manager-pending&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;possible-cause&#34;&gt;Possible Cause&lt;/h2&gt;
 &lt;p&gt;PorterLB uses port 443 by default. If another component in the system has occupied port 443, the porter-manager Pod will be stuck in pending state.&lt;/p&gt;
 &lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
@@ -49,7 +49,7 @@
 &lt;li&gt;
 &lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/verify-porter.jpg&#34; alt=&#34;verify-porter&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/verify-porter.jpg&#34; alt=&#34;verify-porter&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 

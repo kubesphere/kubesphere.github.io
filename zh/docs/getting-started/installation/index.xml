@@ -54,7 +54,7 @@
 &lt;li&gt;
 &lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-kubectl.jpg&#34; alt=&#34;verify-porter-kubectl&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-kubectl.jpg&#34; alt=&#34;verify-porter-kubectl&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;delete-porterlb-using-kubectl&#34;&gt;Delete PorterLB Using kubectl&lt;/h2&gt;
@@ -71,7 +71,7 @@
 &lt;li&gt;
 &lt;p&gt;Run the following command to check the result. If the porter-system namespace does not exist, PorterLB has been deleted successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get ns
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-deletion-kubectl.jpg&#34; alt=&#34;verify-porter-deletion-kubectl&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-deletion-kubectl.jpg&#34; alt=&#34;verify-porter-deletion-kubectl&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;install-porterlb-using-helm&#34;&gt;Install PorterLB Using Helm&lt;/h2&gt;
@@ -85,7 +85,7 @@ helm install porter test/porter
 &lt;li&gt;
 &lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -A
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-helm.jpg&#34; alt=&#34;verify-porter-helm&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-helm.jpg&#34; alt=&#34;verify-porter-helm&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;delete-porterlb-using-helm&#34;&gt;Delete PorterLB Using Helm&lt;/h2&gt;
@@ -102,7 +102,7 @@ helm install porter test/porter
 &lt;li&gt;
 &lt;p&gt;Run the following command to check the result. If the PorterLB application does not exist, PorterLB has been deleted successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm ls
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-deletion-helm.jpg&#34; alt=&#34;verify-porter-deletion-helm&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubernetes/verify-porter-deletion-helm.jpg&#34; alt=&#34;verify-porter-deletion-helm&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -138,41 +138,41 @@ helm install porter test/porter
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Log in to the KubeSphere console and go to your workspace.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/enter-workspace.jpg&#34; alt=&#34;enter-workspace&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/enter-workspace.jpg&#34; alt=&#34;enter-workspace&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;On the left navigation bar, choose &lt;strong&gt;Apps Management&lt;/strong&gt; &amp;gt; &lt;strong&gt;App Repos&lt;/strong&gt;, and click &lt;strong&gt;Add Repo&lt;/strong&gt; on the right.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/add-repo.jpg&#34; alt=&#34;add-repo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/add-repo.jpg&#34; alt=&#34;add-repo&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;In the displayed dialog box, set &lt;strong&gt;App Repository Name&lt;/strong&gt; (for example, &lt;code&gt;KubeSphere-test&lt;/code&gt;), set &lt;strong&gt;URL&lt;/strong&gt; to &lt;code&gt;https://charts.kubesphere.io/test&lt;/code&gt;, click &lt;strong&gt;Validate&lt;/strong&gt; to check the URL, and click &lt;strong&gt;OK&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/repo-spec.jpg&#34; alt=&#34;repo-spec&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/repo-spec.jpg&#34; alt=&#34;repo-spec&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, and click &lt;strong&gt;Deploy New Application&lt;/strong&gt; on the right.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/deploy-new-app.jpg&#34; alt=&#34;deploy-new-app&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/deploy-new-app.jpg&#34; alt=&#34;deploy-new-app&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;In the displayed dialog box, click &lt;strong&gt;From App Templates&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/from-app-templates.jpg&#34; alt=&#34;from-app-templates&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/from-app-templates.jpg&#34; alt=&#34;from-app-templates&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Select &lt;strong&gt;KubeSphere-test&lt;/strong&gt; from the drop-down list and click &lt;strong&gt;porter&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-template.jpg&#34; alt=&#34;porter-template&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/porter-template.jpg&#34; alt=&#34;porter-template&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Click &lt;strong&gt;Deploy&lt;/strong&gt; and follow the wizard instructions to complete the installation. You can customize the chart configuration in the YAML file based on your requirements.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/deploy-porter.jpg&#34; alt=&#34;deploy-porter&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-yaml.jpg&#34; alt=&#34;porter-yaml&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/deploy-porter.jpg&#34; alt=&#34;deploy-porter&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/porter-yaml.jpg&#34; alt=&#34;porter-yaml&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Pods&lt;/strong&gt; on the left navigation bar to check whether the status of porter-manager is &lt;strong&gt;running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/verify-porter.jpg&#34; alt=&#34;verify-porter&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/verify-porter.jpg&#34; alt=&#34;verify-porter&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;delete-porterlb-on-the-kubesphere-web-console&#34;&gt;Delete PorterLB on the KubeSphere Web Console&lt;/h2&gt;
-&lt;p&gt;To delete PorterLB on the KubeSphere web console, go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, click &lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-operation.jpg&#34; alt=&#34;porter-operation&#34;&gt; on the right of the PorterLB application, and choose &lt;strong&gt;Delete&lt;/strong&gt; from the drop-down list.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-kubesphere/delete-porter.jpg&#34; alt=&#34;delete-porter&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To delete PorterLB on the KubeSphere web console, go to your project, choose &lt;strong&gt;Application Workloads&lt;/strong&gt; &amp;gt; &lt;strong&gt;Applications&lt;/strong&gt; on the left navigation bar, click &lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/porter-operation.jpg&#34; alt=&#34;porter-operation&#34;&gt; on the right of the PorterLB application, and choose &lt;strong&gt;Delete&lt;/strong&gt; from the drop-down list.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-kubesphere/delete-porter.jpg&#34; alt=&#34;delete-porter&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
@@ -239,7 +239,7 @@ helm install porter test/porter
 &lt;li&gt;
 &lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -n porter-system
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-kubectl.jpg&#34; alt=&#34;verify-porter-kubectl&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-k3s/verify-porter-kubectl.jpg&#34; alt=&#34;verify-porter-kubectl&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;delete-porterlb-using-kubectl&#34;&gt;Delete PorterLB Using kubectl&lt;/h2&gt;
@@ -256,7 +256,7 @@ helm install porter test/porter
 &lt;li&gt;
 &lt;p&gt;Run the following command to check the result. If the porter-system namespace does not exist, PorterLB has been deleted successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get ns
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-kubectl.jpg&#34; alt=&#34;verify-porter-deletion-kubectl&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-kubectl.jpg&#34; alt=&#34;verify-porter-deletion-kubectl&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;install-porterlb-using-helm&#34;&gt;Install PorterLB Using Helm&lt;/h2&gt;
@@ -300,7 +300,7 @@ helm install porter test/porter
 &lt;li&gt;
 &lt;p&gt;Run the following command to check whether the status of porter-manager is &lt;strong&gt;READY&lt;/strong&gt;: &lt;strong&gt;1/1&lt;/strong&gt; and &lt;strong&gt;STATUS&lt;/strong&gt;: &lt;strong&gt;Running&lt;/strong&gt;. If yes, PorterLB has been installed successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po -A
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-helm.jpg&#34; alt=&#34;verify-porter-helm&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-k3s/verify-porter-helm.jpg&#34; alt=&#34;verify-porter-helm&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;delete-porterlb-using-helm&#34;&gt;Delete PorterLB Using Helm&lt;/h2&gt;
@@ -317,7 +317,7 @@ helm install porter test/porter
 &lt;li&gt;
 &lt;p&gt;Run the following command to check the result. If the PorterLB application does not exist, PorterLB has been deleted successfully.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;helm ls
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-helm.jpg&#34; alt=&#34;verify-porter-deletion-helm&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-helm.jpg&#34; alt=&#34;verify-porter-deletion-helm&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 

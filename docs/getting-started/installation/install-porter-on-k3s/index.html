@@ -26,12 +26,12 @@ NOTE
  In a Kubernetes cluster, you only need to install PorterLB once. After the installation is complete, a porter-manager Deployment that contains a porter-manager Pod is installed in the cluster. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster. After the installation is complete, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager Pods) to multiple cluster nodes to ensure high availability." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/installation/install-porter-on-k3s/" />
-<meta property="article:modified_time" content="2021-02-25T11:37:08+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-31T10:27:04+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Install PorterLB on K3s">
 <meta itemprop="description" content="This document describes how to use kubectl and Helm to install and delete PorterLB in a K3s Kubernetes cluster.
 NOTE
  In a Kubernetes cluster, you only need to install PorterLB once. After the installation is complete, a porter-manager Deployment that contains a porter-manager Pod is installed in the cluster. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster. After the installation is complete, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager Pods) to multiple cluster nodes to ensure high availability.">
-<meta itemprop="dateModified" content="2021-02-25T11:37:08&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-31T10:27:04&#43;08:00" />
 <meta itemprop="wordCount" content="602">
 
 
@@ -672,7 +672,7 @@ NOTE
 <li>
 <p>Run the following command to check whether the status of porter-manager is <strong>READY</strong>: <strong>1/1</strong> and <strong>STATUS</strong>: <strong>Running</strong>. If yes, PorterLB has been installed successfully.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get po -n porter-system
-</code></pre></div><p><img src="/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-kubectl.jpg" alt="verify-porter-kubectl"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/installation/install-porter-on-k3s/verify-porter-kubectl.jpg" alt="verify-porter-kubectl"></p>
 </li>
 </ol>
 <h2 id="delete-porterlb-using-kubectl">Delete PorterLB Using kubectl</h2>
@@ -689,7 +689,7 @@ NOTE
 <li>
 <p>Run the following command to check the result. If the porter-system namespace does not exist, PorterLB has been deleted successfully.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get ns
-</code></pre></div><p><img src="/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-kubectl.jpg" alt="verify-porter-deletion-kubectl"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-kubectl.jpg" alt="verify-porter-deletion-kubectl"></p>
 </li>
 </ol>
 <h2 id="install-porterlb-using-helm">Install PorterLB Using Helm</h2>
@@ -733,7 +733,7 @@ helm install porter test/porter
 <li>
 <p>Run the following command to check whether the status of porter-manager is <strong>READY</strong>: <strong>1/1</strong> and <strong>STATUS</strong>: <strong>Running</strong>. If yes, PorterLB has been installed successfully.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get po -A
-</code></pre></div><p><img src="/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-helm.jpg" alt="verify-porter-helm"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/installation/install-porter-on-k3s/verify-porter-helm.jpg" alt="verify-porter-helm"></p>
 </li>
 </ol>
 <h2 id="delete-porterlb-using-helm">Delete PorterLB Using Helm</h2>
@@ -750,7 +750,7 @@ helm install porter test/porter
 <li>
 <p>Run the following command to check the result. If the PorterLB application does not exist, PorterLB has been deleted successfully.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm ls
-</code></pre></div><p><img src="/images/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-helm.jpg" alt="verify-porter-deletion-helm"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/installation/install-porter-on-k3s/verify-porter-deletion-helm.jpg" alt="verify-porter-deletion-helm"></p>
 </li>
 </ol>
 
@@ -816,7 +816,7 @@ helm install porter test/porter
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 25, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/4ba156788ae90877f151ba24de957608cf94643f">Capitalized terms. (4ba1567)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 31, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/6b5fcb1b7e55642ccc25c7c0a5e16f6f54b9c622">Relocated files to adapt to localization and changed links. (6b5fcb1)</a>
 </div>
 </div>
 

@@ -4,7 +4,7 @@
   
   <url>
     <loc>/docs/concepts/bgp-mode/</loc>
-    <lastmod>2021-03-12T18:00:49+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -19,7 +19,7 @@
   
   <url>
     <loc>/docs/building-and-contributing/build-the-porter-project/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
+    <lastmod>2021-03-25T17:06:23+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -49,7 +49,7 @@
   
   <url>
     <loc>/docs/getting-started/installation/install-porter-on-kubernetes/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -79,7 +79,7 @@
   
   <url>
     <loc>/docs/concepts/layer-2-mode/</loc>
-    <lastmod>2021-03-15T17:46:50+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -94,7 +94,7 @@
   
   <url>
     <loc>/docs/overview/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -109,7 +109,7 @@
   
   <url>
     <loc>/docs/getting-started/usage/use-porter-in-bgp-mode/</loc>
-    <lastmod>2021-03-12T17:37:39+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -124,7 +124,7 @@
   
   <url>
     <loc>/docs/faqs/what-do-i-do-if-the-porter-manager-pod-is-stuck-in-pending-state/</loc>
-    <lastmod>2021-02-23T15:53:55+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -184,7 +184,7 @@
   
   <url>
     <loc>/docs/building-and-contributing/contribute-to-the-porter-project/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
+    <lastmod>2021-03-25T17:06:23+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -199,7 +199,7 @@
   
   <url>
     <loc>/docs/getting-started/installation/install-porter-on-kubesphere/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -214,7 +214,7 @@
   
   <url>
     <loc>/docs/getting-started/usage/use-porter-in-layer-2-mode/</loc>
-    <lastmod>2021-03-15T17:46:50+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -229,7 +229,7 @@
   
   <url>
     <loc>/docs/getting-started/configuration/configure-porter-for-multi-router-clusters/</loc>
-    <lastmod>2021-03-12T17:37:39+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -259,7 +259,7 @@
   
   <url>
     <loc>/docs/getting-started/installation/install-porter-on-k3s/</loc>
-    <lastmod>2021-02-25T11:37:08+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -289,7 +289,7 @@
   
   <url>
     <loc>/docs/building-and-contributing/</loc>
-    <lastmod>2021-02-23T15:37:17+08:00</lastmod>
+    <lastmod>2021-04-07T13:28:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -304,7 +304,7 @@
   
   <url>
     <loc>/docs/getting-started/configuration/configure-multiple-porter-replicas/</loc>
-    <lastmod>2021-03-12T17:37:39+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -348,13 +348,28 @@
   </url>
   
   <url>
+    <loc>/blog/2021/03/30/porterlb-high-availability-mechanisms-in-layer-2-mode/</loc>
+    <lastmod>2021-04-02T11:46:36+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/2021/03/12/kubesphere-porterlb-implement-grayscale-release-on-bare-metal-kubernetes/</loc>
-    <lastmod>2021-03-17T14:29:09+08:00</lastmod>
+    <lastmod>2021-03-31T10:32:06+08:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/2021/02/25/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/</loc>
-    <lastmod>2021-03-17T14:50:55+08:00</lastmod>
+    <lastmod>2021-03-31T10:27:04+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="/zh/blog/2021/02/25/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/blog/2021/02/25/porterlb-for-bare-metal-kubernetes-cloud-native-elegant-and-flexible/"
+                />
   </url>
   
   <url>

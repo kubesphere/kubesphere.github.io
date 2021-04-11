@@ -136,7 +136,7 @@ protocol bgp neighbor1 {
 &lt;li&gt;
 &lt;p&gt;Run the following command to check whether the status of BIRD is active:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo systemctl status bird
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/bird-status.jpg&#34; alt=&#34;bird-status&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-bgp-mode/bird-status.jpg&#34; alt=&#34;bird-status&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
@@ -312,24 +312,24 @@ protocol bgp neighbor1 {
 &lt;li&gt;
 &lt;p&gt;In the Kubernetes cluster, run the following command to obtain the external IP address of the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get svc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/service-ip.jpg&#34; alt=&#34;service-ip&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-bgp-mode/service-ip.jpg&#34; alt=&#34;service-ip&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;In the Kubernetes cluster, run the following command to obtain the IP addresses of the cluster nodes:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/node-ips.jpg&#34; alt=&#34;node-ips&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-bgp-mode/node-ips.jpg&#34; alt=&#34;node-ips&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;On the BIRD machine, run the following command to check the routing table. If equivalent routes using the Kubernetes cluster nodes as next hops destined for the Service are displayed, PorterLB functions properly.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip route
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, all Kubernetes cluster nodes are used as the next hops.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-cluster.jpg&#34; alt=&#34;bgp-routes-cluster&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-cluster.jpg&#34; alt=&#34;bgp-routes-cluster&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-6-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only Kubernetes cluster nodes that contain Pods are used as the next hops.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-local.jpg&#34; alt=&#34;bgp-routes-local&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-bgp-mode/bgp-routes-local.jpg&#34; alt=&#34;bgp-routes-local&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;On the BIRD machine, run the following command to access the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl 172.22.0.2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-bgp-mode/access-service.jpg&#34; alt=&#34;access-service&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-bgp-mode/access-service.jpg&#34; alt=&#34;access-service&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -530,17 +530,17 @@ protocol bgp neighbor1 {
 &lt;li&gt;
 &lt;p&gt;In the Kubernetes cluster, run the following command to obtain the external IP address of the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get svc porter-layer2-svc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-ip.jpg&#34; alt=&#34;service-ip&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/service-ip.jpg&#34; alt=&#34;service-ip&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;In the Kubernetes cluster, run the following command to obtain the IP addresses of the cluster nodes:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get nodes -o wide
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/node-ips.jpg&#34; alt=&#34;node-ips&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/node-ips.jpg&#34; alt=&#34;node-ips&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;In the Kubernetes cluster, run the following command to check the nodes of the Pods:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl get po
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/pod-nodes.jpg&#34; alt=&#34;pod-nodes&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/pod-nodes.jpg&#34; alt=&#34;pod-nodes&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;notices note&#34;&gt;
   
   &lt;p&gt;NOTE&lt;/p&gt;
@@ -551,16 +551,16 @@ protocol bgp neighbor1 {
 &lt;p&gt;On the client machine, run the following commands to ping the Service IP address and check the IP neighbors:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ping 192.168.0.91
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip neigh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/ip-neigh.jpg&#34; alt=&#34;ip-neigh&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/ip-neigh.jpg&#34; alt=&#34;ip-neigh&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In the output of the &lt;code&gt;ip neigh&lt;/code&gt; command, the MAC address of the Service IP address 192.168.0.91 is the same as that of worker-p001 192.168.0.3. Therefore, PorterLB has mapped the Service IP address to the MAC address of worker-p001.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;On the client machine, run the following command to access the Service:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl 192.168.0.91
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Cluster&lt;/code&gt;, both Pods can be reached.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-cluster.jpg&#34; alt=&#34;service-cluster&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/service-cluster.jpg&#34; alt=&#34;service-cluster&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If &lt;code&gt;spec:externalTrafficPolicy&lt;/code&gt; in the &lt;a href=&#34;#step-5-create-a-service&#34;&gt;Service YAML configuration&lt;/a&gt; is set to &lt;code&gt;Local&lt;/code&gt;, only the Pod on the node selected by PorterLB can be reached.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-local.jpg&#34; alt=&#34;service-local&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/service-local.jpg&#34; alt=&#34;service-local&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 

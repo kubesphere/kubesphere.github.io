@@ -26,12 +26,12 @@ NOTE
  In a Kubernetes cluster, you only need to install PorterLB once. After the installation is complete, a porter-manager Deployment that contains a porter-manager Pod is installed in the cluster. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster. After the installation is complete, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager Pods) to multiple cluster nodes to ensure high availability." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh/docs/getting-started/installation/install-porter-on-kubesphere/" />
-<meta property="article:modified_time" content="2021-03-25T11:20:42+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-31T10:27:04+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Install PorterLB on KubeSphere">
 <meta itemprop="description" content="This document describes how to install and delete PorterLB on the KubeSphere web console.
 NOTE
  In a Kubernetes cluster, you only need to install PorterLB once. After the installation is complete, a porter-manager Deployment that contains a porter-manager Pod is installed in the cluster. The porter-manager Pod implements the functionality of PorterLB for the entire Kubernetes cluster. After the installation is complete, you can scale the porter-manager Deployment and assign multiple PorterLB replicas (porter-manager Pods) to multiple cluster nodes to ensure high availability.">
-<meta itemprop="dateModified" content="2021-03-25T11:20:42&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-31T10:27:04&#43;08:00" />
 <meta itemprop="wordCount" content="379">
 
 
@@ -642,41 +642,41 @@ NOTE
 <ol>
 <li>
 <p>Log in to the KubeSphere console and go to your workspace.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/enter-workspace.jpg" alt="enter-workspace"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/enter-workspace.jpg" alt="enter-workspace"></p>
 </li>
 <li>
 <p>On the left navigation bar, choose <strong>Apps Management</strong> &gt; <strong>App Repos</strong>, and click <strong>Add Repo</strong> on the right.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/add-repo.jpg" alt="add-repo"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/add-repo.jpg" alt="add-repo"></p>
 </li>
 <li>
 <p>In the displayed dialog box, set <strong>App Repository Name</strong> (for example, <code>KubeSphere-test</code>), set <strong>URL</strong> to <code>https://charts.kubesphere.io/test</code>, click <strong>Validate</strong> to check the URL, and click <strong>OK</strong>.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/repo-spec.jpg" alt="repo-spec"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/repo-spec.jpg" alt="repo-spec"></p>
 </li>
 <li>
 <p>Go to your project, choose <strong>Application Workloads</strong> &gt; <strong>Applications</strong> on the left navigation bar, and click <strong>Deploy New Application</strong> on the right.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/deploy-new-app.jpg" alt="deploy-new-app"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/deploy-new-app.jpg" alt="deploy-new-app"></p>
 </li>
 <li>
 <p>In the displayed dialog box, click <strong>From App Templates</strong>.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/from-app-templates.jpg" alt="from-app-templates"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/from-app-templates.jpg" alt="from-app-templates"></p>
 </li>
 <li>
 <p>Select <strong>KubeSphere-test</strong> from the drop-down list and click <strong>porter</strong>.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-template.jpg" alt="porter-template"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/porter-template.jpg" alt="porter-template"></p>
 </li>
 <li>
 <p>Click <strong>Deploy</strong> and follow the wizard instructions to complete the installation. You can customize the chart configuration in the YAML file based on your requirements.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/deploy-porter.jpg" alt="deploy-porter"></p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-yaml.jpg" alt="porter-yaml"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/deploy-porter.jpg" alt="deploy-porter"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/porter-yaml.jpg" alt="porter-yaml"></p>
 </li>
 <li>
 <p>Choose <strong>Application Workloads</strong> &gt; <strong>Pods</strong> on the left navigation bar to check whether the status of porter-manager is <strong>running</strong>. If yes, PorterLB has been installed successfully.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/verify-porter.jpg" alt="verify-porter"></p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/verify-porter.jpg" alt="verify-porter"></p>
 </li>
 </ol>
 <h2 id="delete-porterlb-on-the-kubesphere-web-console">Delete PorterLB on the KubeSphere Web Console</h2>
-<p>To delete PorterLB on the KubeSphere web console, go to your project, choose <strong>Application Workloads</strong> &gt; <strong>Applications</strong> on the left navigation bar, click <img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/porter-operation.jpg" alt="porter-operation"> on the right of the PorterLB application, and choose <strong>Delete</strong> from the drop-down list.</p>
-<p><img src="/images/docs/getting-started/installation/install-porter-on-kubesphere/delete-porter.jpg" alt="delete-porter"></p>
+<p>To delete PorterLB on the KubeSphere web console, go to your project, choose <strong>Application Workloads</strong> &gt; <strong>Applications</strong> on the left navigation bar, click <img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/porter-operation.jpg" alt="porter-operation"> on the right of the PorterLB application, and choose <strong>Delete</strong> from the drop-down list.</p>
+<p><img src="/images/en/docs/getting-started/installation/install-porter-on-kubesphere/delete-porter.jpg" alt="delete-porter"></p>
 <div class="notices note">
   
   <p>NOTE</p>
@@ -745,7 +745,7 @@ NOTE
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最新更新 March 25, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/cff3e77ea214ff28b6a0aac0aa28b8c25d97a381">add chinese content (cff3e77)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最新更新 March 31, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/6b5fcb1b7e55642ccc25c7c0a5e16f6f54b9c622">Relocated files to adapt to localization and changed links. (6b5fcb1)</a>
 </div>
 </div>
 

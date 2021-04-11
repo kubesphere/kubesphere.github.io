@@ -26,12 +26,12 @@ NOTE
 Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, the BGP mode requires your router to support BGP and Equal-Cost Multi-Path (ECMP) routing, which may be unavailable in certain systems. In this case, you can use the Layer 2 mode to achieve similar functionality." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh/docs/concepts/layer-2-mode/" />
-<meta property="article:modified_time" content="2021-03-25T11:20:42+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-31T10:27:04+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Layer 2 Mode">
 <meta itemprop="description" content="This document describes the network topology of PorterLB in Layer 2 mode and how PorterLB functions in Layer 2 mode.
 NOTE
 Generally, you are advised to use the BGP mode because it allows you to create a high availability system free of failover interruptions and bandwidth bottlenecks. However, the BGP mode requires your router to support BGP and Equal-Cost Multi-Path (ECMP) routing, which may be unavailable in certain systems. In this case, you can use the Layer 2 mode to achieve similar functionality.">
-<meta itemprop="dateModified" content="2021-03-25T11:20:42&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-31T10:27:04&#43;08:00" />
 <meta itemprop="wordCount" content="406">
 
 
@@ -612,7 +612,7 @@ Generally, you are advised to use the BGP mode because it allows you to create a
 </div>
 <h2 id="network-topology">Network Topology</h2>
 <p>The following figure shows the topology of the network between a Kubernetes cluster with PorterLB and a router.</p>
-<p><img src="/images/docs/concepts/layer-2-mode/porter-layer-2-topology.jpg" alt="porter-layer-2-topology"></p>
+<p><img src="/images/en/en/endocs/concepts/layer-2-mode/porter-layer-2-topology.jpg" alt="porter-layer-2-topology"></p>
 <p>IP addresses and MAC addresses in the preceding figure are examples only. The topology is described as follows:</p>
 <ul>
 <li>A Service backed by two Pods is deployed in the Kubernetes cluster, and is assigned an IP address 192.168.0.91 for external access. The Service IP address is on the same network segment as the cluster node IP addresses.</li>
@@ -693,7 +693,7 @@ Generally, you are advised to use the BGP mode because it allows you to create a
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最新更新 March 25, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/cff3e77ea214ff28b6a0aac0aa28b8c25d97a381">add chinese content (cff3e77)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最新更新 March 31, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/6b5fcb1b7e55642ccc25c7c0a5e16f6f54b9c622">Relocated files to adapt to localization and changed links. (6b5fcb1)</a>
 </div>
 </div>
 

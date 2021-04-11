@@ -25,11 +25,11 @@
  If all Kubernetes cluster nodes are deployed under the same router (BGP mode or Layer 2 mode), you are advised to configure at least two PorterLB replicas, which are installed on two Kubernetes cluster nodes respectively." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/configuration/configure-multiple-porter-replicas/" />
-<meta property="article:modified_time" content="2021-03-12T17:37:39+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-31T10:27:04+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Configure Multiple PorterLB Replicas">
 <meta itemprop="description" content="This document describes how to configure multiple PorterLB replicas to ensure high availability in a production environment. You can skip this document if PorterLB is used in a test environment. By default, only one PorterLB replica is installed in a Kubernetes cluster.
  If all Kubernetes cluster nodes are deployed under the same router (BGP mode or Layer 2 mode), you are advised to configure at least two PorterLB replicas, which are installed on two Kubernetes cluster nodes respectively.">
-<meta itemprop="dateModified" content="2021-03-12T17:37:39&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-31T10:27:04&#43;08:00" />
 <meta itemprop="wordCount" content="384">
 
 
@@ -655,7 +655,7 @@
 <li>
 <p>Run the following command to check whether PorterLB has been installed on the required nodes.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get po -n porter-system -o wide
-</code></pre></div><p><img src="/images/docs/getting-started/configuration/configure-multiple-porter-replicas/verify-configuration-result.jpg" alt="verify-configuration-result"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/configuration/configure-multiple-porter-replicas/verify-configuration-result.jpg" alt="verify-configuration-result"></p>
 </li>
 </ol>
 <div class="notices note">
@@ -729,7 +729,7 @@
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified March 12, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/dc30f3aa56fa362f2a772457dd1da8b595f1a2c8">Added description in bpg-mode-en and changed the YAML item separator. (dc30f3a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 31, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/6b5fcb1b7e55642ccc25c7c0a5e16f6f54b9c622">Relocated files to adapt to localization and changed links. (6b5fcb1)</a>
 </div>
 </div>
 

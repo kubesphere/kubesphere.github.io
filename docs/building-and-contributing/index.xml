@@ -33,7 +33,7 @@
 &lt;h2 id=&#34;procedure&#34;&gt;Procedure&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Visit &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;https://github.com/kubesphere/porter&lt;/a&gt; and click &lt;strong&gt;Fork&lt;/strong&gt; to fork the PorterLB repository to your own GitHub account.&lt;/p&gt;
+&lt;p&gt;Visit &lt;a href=&#34;https://github.com/kubesphere/porterlb&#34;&gt;https://github.com/kubesphere/porterlb&lt;/a&gt; and click &lt;strong&gt;Fork&lt;/strong&gt; to fork the PorterLB repository to your own GitHub account.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Log in to your environment, and run the following commands to clone the PorterLB repository and go to the &lt;code&gt;porter&lt;/code&gt; directory:&lt;/p&gt;
@@ -101,12 +101,12 @@
         
         &lt;p&gt;PorterLB is an open-source project and a sub-project of &lt;a href=&#34;https://github.com/kubesphere&#34;&gt;KubeSphere&lt;/a&gt;. Contributions in all forms are always welcome!&lt;/p&gt;
 &lt;h2 id=&#34;new-feature-proposals&#34;&gt;New Feature Proposals&lt;/h2&gt;
-&lt;p&gt;If you have any ideas or suggestions, please send &lt;a href=&#34;https://github.com/kubesphere/community/blob/master/contribution/design-proposal-template.md&#34;&gt;design proposals&lt;/a&gt; to the &lt;a href=&#34;https://github.com/kubesphere/kubesphere/issues&#34;&gt;GitHub PorterLB Repository Issues&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have any ideas or suggestions, please send &lt;a href=&#34;https://github.com/kubesphere/community/blob/master/contribution/design-proposal-template.md&#34;&gt;design proposals&lt;/a&gt; to the &lt;a href=&#34;https://github.com/kubesphere/porterlb/issues&#34;&gt;GitHub PorterLB Repository Issues&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;code-contributions&#34;&gt;Code Contributions&lt;/h2&gt;
-&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/community/tree/master/developer-guide&#34;&gt;developer guides&lt;/a&gt; at the KubeSphere Community, &lt;a href=&#34;/docs/building-and-contributing/build-the-porter-project&#34;&gt;build the PorterLB project&lt;/a&gt; locally for testing, and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter&#34;&gt;GitHub PorterLB Repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/community/tree/master/developer-guide&#34;&gt;developer guides&lt;/a&gt; at the KubeSphere Community, &lt;a href=&#34;/docs/building-and-contributing/build-the-porter-project&#34;&gt;build the PorterLB project&lt;/a&gt; locally for testing, and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porterlb&#34;&gt;GitHub PorterLB Repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;document-contributions&#34;&gt;Document Contributions&lt;/h2&gt;
 &lt;p&gt;Both original documents and localization works are welcome!&lt;/p&gt;
-&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/KubeSphere%20Documentation%20Style%20Guide.md&#34;&gt;KubeSphere Documentation Style Guide&lt;/a&gt; and &lt;a href=&#34;https://github.com/kubesphere/website/blob/master/localization_style_guides/KubeSphere%20Localization%20Style%20Guide%20(for%20Simplified%20Chinese).md&#34;&gt;KubeSphere Localization Style Guide&lt;/a&gt; and send pull requests to the &lt;a href=&#34;https://github.com/kubesphere/porter-website&#34;&gt;GitHub PorterLB Website Repository&lt;/a&gt;. All documents of PorterLB are located in the &lt;a href=&#34;https://github.com/kubesphere/porter-website/tree/master/content&#34;&gt;content&lt;/a&gt; directory.&lt;/p&gt;
+&lt;p&gt;Obtain the &lt;a href=&#34;https://github.com/kubesphere/porter-website&#34;&gt;PorterLB Style Guides&lt;/a&gt; in the root directory of the GitHub PorterLB Website Repository. All documents of PorterLB are located in the &lt;a href=&#34;https://github.com/kubesphere/porter-website/tree/master/content&#34;&gt;content&lt;/a&gt; directory.&lt;/p&gt;
 
       </description>
     </item>

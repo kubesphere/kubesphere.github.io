@@ -25,11 +25,11 @@
 Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been installed. All Kubernetes cluster nodes must be on the same Layer 2 network (under the same router)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/zh/docs/getting-started/usage/use-porter-in-layer-2-mode/" />
-<meta property="article:modified_time" content="2021-03-25T11:20:42+08:00" /><meta property="og:site_name" content="PorterLB" />
+<meta property="article:modified_time" content="2021-03-31T10:27:04+08:00" /><meta property="og:site_name" content="PorterLB" />
 <meta itemprop="name" content="Use PorterLB in Layer 2 Mode">
 <meta itemprop="description" content="This document demonstrates how to use PorterLB in Layer 2 mode to expose a Service backed by two Pods. The Eip, Deployment and Service described in this document are examples only and you need to customize the commands and YAML configurations based on your requirements.
 Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been installed. All Kubernetes cluster nodes must be on the same Layer 2 network (under the same router).">
-<meta itemprop="dateModified" content="2021-03-25T11:20:42&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-31T10:27:04&#43;08:00" />
 <meta itemprop="wordCount" content="871">
 
 
@@ -807,17 +807,17 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
 <li>
 <p>In the Kubernetes cluster, run the following command to obtain the external IP address of the Service:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get svc porter-layer2-svc
-</code></pre></div><p><img src="/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-ip.jpg" alt="service-ip"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/service-ip.jpg" alt="service-ip"></p>
 </li>
 <li>
 <p>In the Kubernetes cluster, run the following command to obtain the IP addresses of the cluster nodes:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get nodes -o wide
-</code></pre></div><p><img src="/images/docs/getting-started/usage/use-porter-in-layer-2-mode/node-ips.jpg" alt="node-ips"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/node-ips.jpg" alt="node-ips"></p>
 </li>
 <li>
 <p>In the Kubernetes cluster, run the following command to check the nodes of the Pods:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get po
-</code></pre></div><p><img src="/images/docs/getting-started/usage/use-porter-in-layer-2-mode/pod-nodes.jpg" alt="pod-nodes"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/pod-nodes.jpg" alt="pod-nodes"></p>
 <div class="notices note">
   
   <p>NOTE</p>
@@ -828,16 +828,16 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
 <p>On the client machine, run the following commands to ping the Service IP address and check the IP neighbors:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ping 192.168.0.91
 </code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip neigh
-</code></pre></div><p><img src="/images/docs/getting-started/usage/use-porter-in-layer-2-mode/ip-neigh.jpg" alt="ip-neigh"></p>
+</code></pre></div><p><img src="/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/ip-neigh.jpg" alt="ip-neigh"></p>
 <p>In the output of the <code>ip neigh</code> command, the MAC address of the Service IP address 192.168.0.91 is the same as that of worker-p001 192.168.0.3. Therefore, PorterLB has mapped the Service IP address to the MAC address of worker-p001.</p>
 </li>
 <li>
 <p>On the client machine, run the following command to access the Service:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl 192.168.0.91
 </code></pre></div><p>If <code>spec:externalTrafficPolicy</code> in the <a href="#step-5-create-a-service">Service YAML configuration</a> is set to <code>Cluster</code>, both Pods can be reached.</p>
-<p><img src="/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-cluster.jpg" alt="service-cluster"></p>
+<p><img src="/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/service-cluster.jpg" alt="service-cluster"></p>
 <p>If <code>spec:externalTrafficPolicy</code> in the <a href="#step-5-create-a-service">Service YAML configuration</a> is set to <code>Local</code>, only the Pod on the node selected by PorterLB can be reached.</p>
-<p><img src="/images/docs/getting-started/usage/use-porter-in-layer-2-mode/service-local.jpg" alt="service-local"></p>
+<p><img src="/images/en/docs/getting-started/usage/use-porter-in-layer-2-mode/service-local.jpg" alt="service-local"></p>
 </li>
 </ol>
 
@@ -903,7 +903,7 @@ Prerequisites  You need to prepare a Kubernetes cluster where PorterLB has been 
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最新更新 March 25, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/cff3e77ea214ff28b6a0aac0aa28b8c25d97a381">add chinese content (cff3e77)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最新更新 March 31, 2021: <a  href="https://github.com/kubesphere/kubesphere.github.io/commit/6b5fcb1b7e55642ccc25c7c0a5e16f6f54b9c622">Relocated files to adapt to localization and changed links. (6b5fcb1)</a>
 </div>
 </div>
 

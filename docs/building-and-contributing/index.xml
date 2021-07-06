@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PorterLB – Building and Contributing</title>
+    <title>OpenELB – Building and Contributing</title>
     <link>/docs/building-and-contributing/</link>
-    <description>Recent content in Building and Contributing on PorterLB</description>
+    <description>Recent content in Building and Contributing on OpenELB</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="/docs/building-and-contributing/index.xml" rel="self" type="application/rss+xml" />

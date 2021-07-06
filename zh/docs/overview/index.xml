@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PorterLB – Overview</title>
+    <title>OpenELB – Overview</title>
     <link>/zh/docs/overview/</link>
-    <description>Recent content in Overview on PorterLB</description>
+    <description>Recent content in Overview on OpenELB</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="/zh/docs/overview/index.xml" rel="self" type="application/rss+xml" />
